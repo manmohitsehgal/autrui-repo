@@ -1,1 +1,1 @@
-Do this: Create a small button that basically includes the transaction to another page which has some text on it. Seamless transaction between two pages. 
+Do this: Create a small button, which when clicked goes toto another page which has some text on it. Seamless transition between two pages. 
