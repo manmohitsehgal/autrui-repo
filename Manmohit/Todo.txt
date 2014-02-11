@@ -1,0 +1,4 @@
+Working on the following:
+1. adding a small button 
+2. adding text button 
+3. adding message to field and printing it to screen
