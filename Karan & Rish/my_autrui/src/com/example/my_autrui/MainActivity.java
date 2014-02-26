@@ -4,39 +4,61 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
-public class MainActivity extends Activity  {
+public class MainActivity extends Activity implements OnClickListener  {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		TabHost th = (TabHost) findViewById (R.id.tabhost);
+		
+		TabHost tbht = (TabHost) findViewById (R.id.tabhost);
 		Resources res =getResources();
-		th.setup();
+		
+		//Buttons in all of the tabs
+		Button cDeed = (Button) findViewById (R.id.bDeed);
+		Button myMovement = (Button) findViewById (R.id.bMovements);
+		Button aboutUs = (Button) findViewById (R.id.bAboutUs);
+		Button help = (Button) findViewById (R.id.bHelp);
+		Button editPP = (Button) findViewById (R.id.bEditPP);
+		Button logout = (Button) findViewById (R.id.bLogOut);
+		Button changePass = (Button) findViewById (R.id.bChangePass);
+		
+		cDeed.setOnClickListener(this);
+		/*myMovement.setOnClickListener(this);
+		aboutUs.setOnClickListener(this);
+		help.setOnClickListener(this);
+		editPP.setOnClickListener(this);
+		logout.setOnClickListener(this);
+		changePass.setOnClickListener(this);*/		
+		
+		tbht.setup();
 		
 		//For the tab - My Autrui
-		TabSpec specs = th.newTabSpec("tag1");
-		specs.setContent(R.id.tab1);
-		specs.setIndicator("My Autrui");
-		th.addTab(specs);
+		TabSpec specsTab = tbht.newTabSpec("tag1");
+		specsTab.setContent(R.id.tab1);
+		specsTab.setIndicator("My Autrui");
+		tbht.addTab(specsTab);
 		
 		//For the tab - Global Impact
-		specs = th.newTabSpec("tag2");
-		specs.setContent(R.id.tab2);
-		specs.setIndicator("Global Impact");
-		th.addTab(specs);
+		specsTab = tbht.newTabSpec("tag2");
+		specsTab.setContent(R.id.tab2);
+		specsTab.setIndicator("Global Impact");
+		tbht.addTab(specsTab);
 		
 		//For the tab - Settings
-		specs = th.newTabSpec("tag3");
-		specs.setIndicator("Settings",res.getDrawable(R.drawable.tab_icon));
-		specs.setContent(R.id.tab3);
+		specsTab = tbht.newTabSpec("tag3");
+		specsTab.setIndicator("Settings",res.getDrawable(R.drawable.tab_icon));
+		specsTab.setContent(R.id.tab3);
 		
-		th.addTab(specs);
+		tbht.addTab(specsTab);
 		
-		th.setCurrentTabByTag("tag1");
+		tbht.setCurrentTabByTag("tag1");
 		
 	}
 
@@ -45,6 +67,29 @@ public class MainActivity extends Activity  {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch(v.getId()){
+		case R.id.bDeed:
+			break;
+		case R.id.bMovements:
+			break;
+		case R.id.bAboutUs:
+			break;
+		case R.id.bChangePass:
+			break;
+		case R.id.bEditPP:
+			break;
+		case R.id.bLogOut:
+			break;
+		case R.id.bHelp:
+			break;
+			
+		}
+		
 	}
 
 }

@@ -34,23 +34,34 @@
                     android:orientation="vertical">
 
                     <Button
-                        android:id="@+id/bMovements"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="30dp"
-                        android:text="My Movements"
-                        android:textSize="30sp"
-                        tools:ignore="HardcodedText" />
-
-                    <Button
                         android:id="@+id/bDeed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Create a deed"
+                        android:layout_marginTop="30dp"
                         android:textSize="30sp"
                         tools:ignore="HardcodedText" />
+                    
+                    <Button
+                        android:id="@+id/bMovements"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:text="Choose a Deed"
+                        android:textSize="30sp"
+                        tools:ignore="HardcodedText" />
+                    <Button
+                        android:id="@+id/bMovements"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:text="My Movements"
+                        android:textSize="30sp"
+                        tools:ignore="HardcodedText" />
+                    
                     
                 </LinearLayout>
 
