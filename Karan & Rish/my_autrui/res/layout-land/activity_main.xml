@@ -37,20 +37,18 @@
                         android:id="@+id/bMovements"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="My Movements" 
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
-                        android:text="My Movements"
-                        android:textSize="30sp"
-                        tools:ignore="HardcodedText" />
+                        android:textSize="30sp"/>
 
                     <Button
                         android:id="@+id/bDeed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="Create a deed" 
                         android:layout_gravity="center"
-                        android:text="Create a deed"
-                        android:textSize="30sp"
-                        tools:ignore="HardcodedText" />
+                        android:textSize="30sp"/>
                     
                 </LinearLayout>
 
@@ -68,52 +66,46 @@
                     android:orientation="vertical"
                     
                     >
-
                     <Button
                         android:id="@+id/bAboutUs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="About Us" 
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
-                        android:text="About Us"
-                        tools:ignore="HardcodedText" />
-
+                        />
                     <Button
                         android:id="@+id/bHelp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="Help" 
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
-                        android:text="Help"
-                        tools:ignore="HardcodedText" />
-
+                        />
                     <Button
                         android:id="@+id/bEditPP"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="Edit Profile Page" 
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
-                        android:text="Edit Profile Page"
-                        tools:ignore="HardcodedText" />
-                 
+                        />                 
                     <Button
                         android:id="@+id/bChangePass"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="Change Password" 
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
-                        android:text="Change Password"
-                        tools:ignore="HardcodedText" />
-                    
+                        />                    
                     <Button
                         android:id="@+id/bLogOut"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="Logout" 
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
-                        android:text="Logout"
-                        tools:ignore="HardcodedText" />
-                   
+                        />                   
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>

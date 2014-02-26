@@ -2,17 +2,19 @@ package com.example.my_autrui;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.res.Resources;
 import android.view.Menu;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity  {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		TabHost th = (TabHost) findViewById (R.id.tabhost);
+		Resources res =getResources();
 		th.setup();
 		
 		//For the tab - My Autrui
@@ -29,11 +31,12 @@ public class MainActivity extends Activity {
 		
 		//For the tab - Settings
 		specs = th.newTabSpec("tag3");
+		specs.setIndicator("Settings",res.getDrawable(R.drawable.tab_icon));
 		specs.setContent(R.id.tab3);
-		specs.setIndicator("Settings");
+		
 		th.addTab(specs);
 		
-		
+		th.setCurrentTabByTag("tag1");
 		
 	}
 
