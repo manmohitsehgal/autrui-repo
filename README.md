@@ -25,4 +25,4 @@ The app is inspired by the Pay It Forward Movement. The idea is to respond to a 
 
 ##Links##
 
-Wiki Page
+Wiki Page URL - https://github.com/mihirjham/autrui-repo.wiki.git
