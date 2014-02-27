@@ -21,6 +21,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CreateDeed">    
+        </activity>
+        <activity
+            android:name=".MyMovement">    
+        </activity>
+        <activity
+            android:name=".ChooseDeed">    
+        </activity>
+        <activity
+            android:name=".Help">    
+        </activity>
+        <activity
+            android:name=".AboutUs">    
+        </activity>
+        <activity
+            android:name=".EditPP">    
+        </activity>
+        <activity
+            android:name=".ChangePassword">    
+        </activity>
     </application>
 
 </manifest>

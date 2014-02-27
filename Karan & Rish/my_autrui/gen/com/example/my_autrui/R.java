@@ -26,22 +26,30 @@ public final class R {
         public static final int tab_icon=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000c;
-        public static final int bAboutUs=0x7f080007;
-        public static final int bChangePass=0x7f08000a;
+        public static final int action_settings=0x7f08000d;
+        public static final int bAboutUs=0x7f080008;
+        public static final int bChangePass=0x7f08000b;
+        public static final int bChoosedeed=0x7f080004;
         public static final int bDeed=0x7f080003;
-        public static final int bEditPP=0x7f080009;
-        public static final int bHelp=0x7f080008;
-        public static final int bLogOut=0x7f08000b;
-        public static final int bMovements=0x7f080004;
+        public static final int bEditPP=0x7f08000a;
+        public static final int bHelp=0x7f080009;
+        public static final int bLogOut=0x7f08000c;
+        public static final int bMovements=0x7f080005;
         public static final int linearlayout1=0x7f080001;
         public static final int tab1=0x7f080002;
-        public static final int tab2=0x7f080005;
-        public static final int tab3=0x7f080006;
+        public static final int tab2=0x7f080006;
+        public static final int tab3=0x7f080007;
         public static final int tabhost=0x7f080000;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int about_us=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int changepassword=0x7f030002;
+        public static final int choose_deed=0x7f030003;
+        public static final int create_deed=0x7f030004;
+        public static final int editpp=0x7f030005;
+        public static final int help=0x7f030006;
+        public static final int my_movement=0x7f030007;
     }
     public static final class menu {
         public static final int main=0x7f070000;
