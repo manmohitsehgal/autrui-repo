@@ -3,13 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="horizontal" >
+    android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="Create Deed Page"
+    <EditText
+        android:id="@+id/etCustomDeed"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:hint="Please Enter Deed"
+        android:layout_marginTop="10dp"
          >
-    </TextView>
+    </EditText>
+    <Button
+        android:id="@+id/bPostDeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Post Deed"
+        android:layout_gravity="center"
+        ></Button>
 
 </LinearLayout>
