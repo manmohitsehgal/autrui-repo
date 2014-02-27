@@ -42,6 +42,9 @@
         <activity
             android:name=".ChangePassword">    
         </activity>
+        <activity
+            android:name=".PostDeed">    
+        </activity>
     </application>
 
 </manifest>
