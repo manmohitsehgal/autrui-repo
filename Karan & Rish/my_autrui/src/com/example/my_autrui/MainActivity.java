@@ -29,13 +29,14 @@ public class MainActivity extends Activity implements OnClickListener  {
 		Button logout = (Button) findViewById (R.id.bLogOut);
 		Button changePass = (Button) findViewById (R.id.bChangePass);
 		
+		//On click listeners for all the buttons in all of the tabs
 		cDeed.setOnClickListener(this);
-		/*myMovement.setOnClickListener(this);
+		myMovement.setOnClickListener(this);
 		aboutUs.setOnClickListener(this);
 		help.setOnClickListener(this);
 		editPP.setOnClickListener(this);
 		logout.setOnClickListener(this);
-		changePass.setOnClickListener(this);*/		
+		changePass.setOnClickListener(this);		
 		
 		tbht.setup();
 		
