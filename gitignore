@@ -27,3 +27,9 @@ proguard/
 *.ipr
 *.iws
 .idea/
+
+#Django Files
+*.log
+*.pot
+*.pyc
+local_settings.py
