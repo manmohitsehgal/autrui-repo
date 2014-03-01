@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- When selected, you should use bg with grey -->
+    <item 
+        android:state_selected="true"
+        android:drawable="@drawable/ic_set"
+           />
+    <!-- When not selected, you should use bg with white 
+    <item android:drawable="@drawable/ic_set_another" />-->
+</selector>
