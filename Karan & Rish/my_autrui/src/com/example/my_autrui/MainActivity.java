@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -71,7 +72,14 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
+	
+	//Left blank so that it doesn't go back. 
+	@Override
+	   public void onBackPressed() {
+	    
+		
+	} 
+	
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

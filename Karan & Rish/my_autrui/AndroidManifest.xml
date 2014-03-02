@@ -17,12 +17,31 @@
             android:name="com.example.my_autrui.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
+                <action android:name="com.example.my_autrui.MAINACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Splash"
+            android:label="@string/app_name" >
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
+            android:name=".Login"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.my_autrui.LOGIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".CreateDeed">    
+        </activity>
+        <activity
+            android:name=".Register">    
         </activity>
         <activity
             android:name=".MyMovement">    
