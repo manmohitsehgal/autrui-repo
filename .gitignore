@@ -2,6 +2,7 @@
 *.log
 *.pot
 *.pyc
+*.jar
 local_settings.py
 
 # built application files
