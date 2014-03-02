@@ -1,1 +1,0 @@
-Do this: Create a small button, which when clicked goes to another page which has some text on it. Seamless transition between two pages. - FINISHED
