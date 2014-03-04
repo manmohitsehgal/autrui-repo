@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
+import com.parse.Parse;
+import com.parse.ParseUser;
+import com.parse.ParseACL;
+import com.parse.ParseObject;
+
 
 public class MainActivity extends Activity implements View.OnClickListener   {
 	Intent intent = new Intent();
@@ -17,6 +22,15 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		/*Parse.initialize(this, "02Y6HfL19JtM03Rg6ZCZqYD5nfQvtkXEba7hojcn", "VzJxedGzq3xbF1tlowX7Jgph9BdIO2a7FPuc54eu");
+		ParseUser.enableAutomaticUser();
+		ParseACL defaultACL = new ParseACL();
+	    
+		// If you would like all objects to be private by default, remove this line.
+		defaultACL.setPublicReadAccess(true);
+		
+		ParseACL.setDefaultACL(defaultACL, true);*/
 		
 		TabHost tbht = (TabHost) findViewById (R.id.tabhost);
 		Resources res =getResources();

@@ -1,8 +1,11 @@
 package com.example.my_autrui;
 
-import android.app.Activity;
+import android.app.Activity;	
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.parse.*;
+
 
 public class Splash extends Activity{
 
@@ -11,6 +14,7 @@ public class Splash extends Activity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splash);
+		
 		Thread timer = new Thread(){
 			public void run(){
 				try{
