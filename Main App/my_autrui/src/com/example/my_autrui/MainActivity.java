@@ -20,14 +20,14 @@ import com.parse.ParseACL;
 import com.parse.ParseObject;
 import com.facebook.*;
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener   {
+public class MainActivity extends Activity implements View.OnClickListener   {
 	Intent intent = new Intent();
 	private MainFragment mainFragment;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		 if (savedInstanceState == null) {
+		 /*if (savedInstanceState == null) {
 		        // Add the fragment on initial activity setup
 		        mainFragment = new MainFragment();
 		        getSupportFragmentManager()
@@ -38,7 +38,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 		        // Or set the fragment from restored state info
 		        mainFragment = (MainFragment) getSupportFragmentManager()
 		        .findFragmentById(android.R.id.content);
-		    }
+		    }*/
 		setContentView(R.layout.activity_main);
 		
 		Parse.initialize(this, "02Y6HfL19JtM03Rg6ZCZqYD5nfQvtkXEba7hojcn", "VzJxedGzq3xbF1tlowX7Jgph9BdIO2a7FPuc54eu");
@@ -112,7 +112,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 	    
 		
 	} 
-	
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

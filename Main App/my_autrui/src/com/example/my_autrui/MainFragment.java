@@ -12,7 +12,6 @@ public class MainFragment extends Fragment {
 	        ViewGroup container, 
 	        Bundle savedInstanceState) {
 	    View view = inflater.inflate(R.layout.login_page, container, false);
-
 	    return view;
 	}
 }

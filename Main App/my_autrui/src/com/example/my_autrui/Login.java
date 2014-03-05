@@ -5,6 +5,7 @@ import com.parse.*;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -17,6 +18,7 @@ public class Login extends Activity {
 	private EditText password = null;
 	private Button Login; 
 	private Button Register;
+	//private MainFragment mainFragment;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,19 @@ public class Login extends Activity {
 		defaultACL.setPublicReadAccess(true);
 		
 		ParseACL.setDefaultACL(defaultACL, true);
+		/*if (savedInstanceState == null) {
+	        // Add the fragment on initial activity setup
+	        mainFragment = new MainFragment();
+	        getSupportFragmentManager()
+	        .beginTransaction()
+	        .add(android.R.id.content, mainFragment)
+	        .commit();
+	    } else {
+	        // Or set the fragment from restored state info
+	        mainFragment = (MainFragment) getSupportFragmentManager()
+	        .findFragmentById(android.R.id.content);
+	    }*/
+		
 		
 		Login = (Button)findViewById(R.id.Login);
 		Login.setOnClickListener(new View.OnClickListener() {
