@@ -1,9 +1,17 @@
 package com.example.my_autrui;
 
+import com.parse.Parse;
+import com.parse.ParseACL;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class CreateDeed extends Activity{
@@ -14,23 +22,32 @@ public class CreateDeed extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_deed);
 		
+		Parse.initialize(this, "bF0ORwBlwjrv46DVMgfVswkFwMRo4KI67yfn4oWp", "h7eVgwYn0ZRlIxkGAg7jwUPrDC7GMaNnMo8htmoy");
+		//ParseUser.enableAutomaticUser();
+		ParseACL defaultACL = new ParseACL();
+	    
+		// If you would like all objects to be private by default, remove this line.
+		defaultACL.setPublicReadAccess(true);
+		
+		ParseACL.setDefaultACL(defaultACL, true);
+		
 		Button postDeed = (Button) findViewById(R.id.bPostDeed);
-		TextView customdeed = (TextView) findViewById(R.id.etCustomDeed);
+		final EditText customdeed = (EditText) findViewById(R.id.etCustomDeed);
 		
 		postDeed.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				switch (v.getId()){
-				case R.id.bPostDeed:
-					
-					break;
-				case R.id.etCustomDeed:
-					
-					break;
+				ParseUser currentUser = ParseUser.getCurrentUser();
+				if(currentUser != null)
+				{
+					String userId = currentUser.getObjectId();
+					ParseObject deedObject = new ParseObject("Deeds");
+					deedObject.put("deedDescription", customdeed.getText().toString());
+					deedObject.put("userId", userId);
+					deedObject.saveInBackground();
 				}
-				
 			}
 		});
 	}

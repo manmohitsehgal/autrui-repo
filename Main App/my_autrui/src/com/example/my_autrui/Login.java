@@ -5,10 +5,12 @@ import com.parse.*;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
 
 public class Login extends Activity {
 	private EditText username = null;
@@ -21,42 +23,47 @@ public class Login extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login_page);
 		
-		/*Parse.initialize(this, "02Y6HfL19JtM03Rg6ZCZqYD5nfQvtkXEba7hojcn", "VzJxedGzq3xbF1tlowX7Jgph9BdIO2a7FPuc54eu");
-		ParseUser.enableAutomaticUser();
+		Parse.initialize(this, "bF0ORwBlwjrv46DVMgfVswkFwMRo4KI67yfn4oWp", "h7eVgwYn0ZRlIxkGAg7jwUPrDC7GMaNnMo8htmoy");
+		//ParseUser.enableAutomaticUser();
 		ParseACL defaultACL = new ParseACL();
 	    
 		// If you would like all objects to be private by default, remove this line.
 		defaultACL.setPublicReadAccess(true);
 		
-		ParseACL.setDefaultACL(defaultACL, true);*/
+		ParseACL.setDefaultACL(defaultACL, true);
 		
 		Login = (Button)findViewById(R.id.Login);
 		Login.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
-			public void onClick(View v) {
+			public void onClick(final View v) {
 				username = (EditText)findViewById(R.id.Username);
 				password = (EditText)findViewById(R.id.Password);
 				
-				/*ParseUser.logInInBackground(username, password, new LogInCallback() {
+				
+				ParseUser.logInInBackground(username.getText().toString(), password.getText().toString(), new LogInCallback() {
 					  public void done(ParseUser user, ParseException e) {
 					    if (user != null) {
 					      // Hooray! The user is logged in.
+					    	
 					       Intent intent = new Intent(v.getContext(), MainActivity.class);
+					       startActivityForResult(intent, 0);
 					    } else {
 					      // Signup failed. Look at the ParseException to see what happened.
+					    	System.out.println("failed\n"+username.getText().toString()+password.getText().toString());
 					    }
 					  }
-					});*/
+					});
 				
-				if(username.getText().toString().equals("Autrui")&&
+				/*if(username.getText().toString().equals("Autrui")&&
 						password.getText().toString().equals("Autrui")){
 					
 				    Intent intent = new Intent(v.getContext(), MainActivity.class);
-					startActivityForResult(intent, 0);
-				}
+					startActivityForResult(intent, 0);*/
+				//}
 			}
 		});
+
 	
 		
 		Register = (Button)findViewById(R.id.Register);
@@ -64,8 +71,8 @@ public class Login extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent moveToRegister = new Intent(getApplicationContext(),Register.class);
-				startActivity(moveToRegister);
+				Intent intent = new Intent(v.getContext(), Register.class);
+				startActivityForResult(intent, 0);
 			}
 		});
 	}
