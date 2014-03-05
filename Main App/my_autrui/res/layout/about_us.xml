@@ -10,7 +10,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
-        android:text="Our Team - Team 10:\n Mihir Jham\n Rishabh Mittal\n Karan Kalwani\n Manmohit Sehgal\n Ankit Kapur"
+        android:text="About Us - Team 10:\n Mihir Jham\n Rishabh Mittal\n Karan Kalwani\n Manmohit Sehgal\n Ankit Kapur"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
