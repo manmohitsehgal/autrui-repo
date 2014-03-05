@@ -4,23 +4,41 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import com.parse.Parse;
+import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 import com.parse.ParseACL;
 import com.parse.ParseObject;
+import com.facebook.*;
 
-
-public class MainActivity extends Activity implements View.OnClickListener   {
+public class MainActivity extends FragmentActivity implements View.OnClickListener   {
 	Intent intent = new Intent();
+	private MainFragment mainFragment;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		 if (savedInstanceState == null) {
+		        // Add the fragment on initial activity setup
+		        mainFragment = new MainFragment();
+		        getSupportFragmentManager()
+		        .beginTransaction()
+		        .add(android.R.id.content, mainFragment)
+		        .commit();
+		    } else {
+		        // Or set the fragment from restored state info
+		        mainFragment = (MainFragment) getSupportFragmentManager()
+		        .findFragmentById(android.R.id.content);
+		    }
 		setContentView(R.layout.activity_main);
 		
 		Parse.initialize(this, "02Y6HfL19JtM03Rg6ZCZqYD5nfQvtkXEba7hojcn", "VzJxedGzq3xbF1tlowX7Jgph9BdIO2a7FPuc54eu");
@@ -79,6 +97,7 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 		tbht.setCurrentTabByTag("tag1");
 		
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

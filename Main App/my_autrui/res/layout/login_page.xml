@@ -65,5 +65,13 @@
         android:layout_below="@+id/Login"
         android:layout_centerHorizontal="true"
         android:text="Register" />
+
+    <com.facebook.widget.LoginButton
+        android:id="@+id/authButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Register"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
     
 </RelativeLayout>
