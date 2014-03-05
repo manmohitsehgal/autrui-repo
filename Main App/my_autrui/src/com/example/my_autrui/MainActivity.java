@@ -23,14 +23,14 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		/*Parse.initialize(this, "02Y6HfL19JtM03Rg6ZCZqYD5nfQvtkXEba7hojcn", "VzJxedGzq3xbF1tlowX7Jgph9BdIO2a7FPuc54eu");
+		Parse.initialize(this, "02Y6HfL19JtM03Rg6ZCZqYD5nfQvtkXEba7hojcn", "VzJxedGzq3xbF1tlowX7Jgph9BdIO2a7FPuc54eu");
 		ParseUser.enableAutomaticUser();
 		ParseACL defaultACL = new ParseACL();
 	    
 		// If you would like all objects to be private by default, remove this line.
 		defaultACL.setPublicReadAccess(true);
 		
-		ParseACL.setDefaultACL(defaultACL, true);*/
+		ParseACL.setDefaultACL(defaultACL, true);
 		
 		TabHost tbht = (TabHost) findViewById (R.id.tabhost);
 		Resources res =getResources();
