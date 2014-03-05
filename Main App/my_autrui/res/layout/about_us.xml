@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+     >
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="About Us Page" >
-    </TextView>
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="Our Team - Team 10:\n Mihir Jham\n Rishabh Mittal\n Karan Kalwani\n Manmohit Sehgal\n Ankit Kapur"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        android:gravity="center_horizontal"
+        android:text="With the advent of technology in the daily lives of people in the past decade, it has been through many forms of uses – from being a luxury to utility to now a means of entertainment. We see that with though this transition has brought greater connectivity and access to information, it has also lost compassion somewhere down the road. The whole world of the social network seems cold and lacks benevolence. We have decided to carry the idea of bridging this gap, by creating a mobile application that aims at bridging this gap. 
+\nThe app is inspired by the Pay It Forward Movement. The idea is to respond to a person's kindness to oneself by being kind to someone else. Our app focuses on providing a social platform where users will be able to connect through these kind deeds, and see the impact of their deed."
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>
