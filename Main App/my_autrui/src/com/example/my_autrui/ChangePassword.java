@@ -1,5 +1,7 @@
 package com.example.my_autrui;
 
+import com.parse.ParseUser;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +20,8 @@ public class ChangePassword extends Activity {
 		EditText oldpassword = (EditText) findViewById(R.id.etOldPass);
 		EditText newpassword = (EditText) findViewById(R.id.etNewPass);
 		EditText retypepassword = (EditText) findViewById(R.id.etRTPass);
+		ParseUser currentUser = ParseUser.getCurrentUser();
+	
 		
 		confirmChange.setOnClickListener(new View.OnClickListener() {
 			

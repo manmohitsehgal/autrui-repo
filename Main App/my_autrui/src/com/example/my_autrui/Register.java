@@ -5,14 +5,17 @@ import android.app.Activity;
 import android.content.Intent;
 //import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 public class Register extends Activity {
 	private Button Register;
-	private EditText firstName;
-	private EditText lastName;
+	private EditText fullName;
+	private EditText userName;
+	private EditText password;
+	private EditText confirmPassword;
 	private EditText email;
 	
 	@Override
@@ -33,36 +36,46 @@ public class Register extends Activity {
 			
 			@Override
 			public void onClick(final View v) {
-				firstName = (EditText)findViewById(R.id.FirstName);
-				lastName = (EditText)findViewById(R.id.LastName);
+				fullName = (EditText)findViewById(R.id.FullName);
+				userName = (EditText)findViewById(R.id.userName);
+				password = (EditText)findViewById(R.id.PasswordField);
+				confirmPassword = (EditText)findViewById(R.id.ConfirmPasswordFields);
 				email =  (EditText)findViewById(R.id.Email);
 				
-				ParseUser user = new ParseUser();
-				user.setUsername(firstName.getText().toString()+lastName.getText().toString());
-				user.setPassword("Autrui");
-				user.setEmail(email.getText().toString());
-				user.signUpInBackground(new SignUpCallback() {
-				  public void done(ParseException e) {
-				    if (e == null) {
-				      // Hooray! Let them use the app now.
-						Intent intent = new Intent(v.getContext(), MainActivity.class);
-						startActivityForResult(intent, 0);
-				    } else {
-				      // Sign up didn't succeed. Look at the ParseException
-				      // to figure out what went wrong
-				    }
-				  }
-				});
+				if(password.getText().toString().equals(confirmPassword.getText().toString()))
+				{
+					ParseUser user = new ParseUser();
+					user.setUsername(userName.getText().toString());
+					user.setPassword(password.getText().toString());
+					user.setEmail(email.getText().toString());
+					//Log.e("Message", "User object created: "+user.getUsername());
+					user.signUpInBackground(new SignUpCallback() 
+					{
+						public void done(ParseException e) 
+						{
+							if (e == null) 
+							{
+								Log.e("Messege","new user has been found");
+								// Hooray! Let them use the app now.
+								Intent intent = new Intent(v.getContext(), MainActivity.class);
+								startActivityForResult(intent, 0);
+							} 
+							else 
+							{
+								// Sign up didn't succeed. Look at the ParseException
+								// to figure out what went wrong
+							}
+						}	
+					});
+				}
 			}	
 				
 			});
 	}
 
-	//Left blank so that it doesn't go back to the Login.java activity
+	
 	@Override
 	   public void onBackPressed() {
-	      
-	    } 
-	
 
+	    } 
 }

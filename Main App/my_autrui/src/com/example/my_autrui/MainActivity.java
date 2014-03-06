@@ -133,6 +133,7 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 			startActivityForResult(intent, 0);
 			break;
 		case R.id.bChangePass:
+			
 			intent = new Intent(v.getContext(), ChangePassword.class);
 			startActivityForResult(intent, 0);
 			break;
@@ -141,7 +142,10 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 			startActivityForResult(intent, 0);
 			break;
 		case R.id.bLogOut:
-			
+			ParseUser currentUser = ParseUser.getCurrentUser();
+			currentUser.logOut();
+			intent = new Intent(v.getContext(), Login.class);
+			startActivityForResult(intent, 0);
 			break;
 		case R.id.bHelp:
 			intent = new Intent(v.getContext(), Help.class);
