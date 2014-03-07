@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <TableRow>
+        <TableRow android:gravity="center_horizontal" >
 
             <TextView
                 android:id="@+id/NameLabel"
@@ -18,19 +18,19 @@
                 android:textColor="#372c24" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:gravity="center_horizontal" >
 
             <EditText
                 android:id="@+id/FullName"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
+                android:ems="15"
                 android:inputType="text"
                 android:paddingBottom="5dip"
                 android:paddingTop="5dip" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:gravity="center_horizontal" >
 
             <TextView
                 android:id="@+id/userNameLabel"
@@ -41,7 +41,7 @@
                 android:textColor="#372c24" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:gravity="center_horizontal" >
 
             <EditText
                 android:id="@+id/userName"
@@ -56,32 +56,29 @@
             </EditText>
         </TableRow>
 
-        <TableRow>
+        <TableRow android:gravity="center_horizontal" >
 
             <TextView
                 android:id="@+id/PasswordLabel"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp"
                 android:text="Password"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#372c24" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:gravity="center_horizontal" >
 
             <EditText
                 android:id="@+id/PasswordField"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
                 android:ems="10"
                 android:inputType="textPassword"
-                android:paddingBottom="5dip"
                 android:paddingTop="5dip" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:gravity="center_horizontal" >
 
             <TextView
                 android:id="@+id/ConfirmPasswordLabel"
@@ -93,7 +90,7 @@
                 android:textColor="#372c24" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:gravity="center_horizontal" > 
 
             <EditText
                 android:id="@+id/ConfirmPasswordFields"
@@ -105,7 +102,7 @@
                 android:paddingTop="5dip" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:gravity="center_horizontal" >
 
             <TextView
                 android:id="@+id/EmailLabel"
@@ -116,7 +113,7 @@
                 android:textColor="#372c24" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:gravity="center_horizontal" >
 
             <EditText
                 android:id="@+id/Email"
@@ -131,8 +128,9 @@
     </TableLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+		android:gravity="center">
 
         <Button
             android:id="@+id/RegisterNewUser"

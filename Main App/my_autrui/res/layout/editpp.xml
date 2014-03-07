@@ -1,80 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
-        android:text="First Name"
-        android:textSize="20dp" />
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-    <EditText
-        android:id="@+id/etFirstName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="105dp"
-        android:layout_marginTop="3dp"
-        android:hint="Enter First Name" />
+        <TableRow android:gravity="center_horizontal" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="55dp"
-        android:text="Last Name"
-        android:textSize="20dp" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Full Name"
+                android:textSize="20dp" />
+        </TableRow>
 
-    <EditText
-        android:id="@+id/etLastName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="105dp"
-        android:layout_marginTop="50dp"
-        android:hint="Enter Last Name" />
+        <TableRow
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="100dp"
-        android:text="E-mail"
-        android:textSize="20dp" />
+            <EditText
+                android:id="@+id/etFullName"
+                android:layout_width="match_parent"
+                android:layout_marginTop="3dp"
+                android:hint="Enter First Name" >
 
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="82dp"
-        android:layout_marginTop="95dp"
-        android:hint="Enter new E-mail" />
+                <requestFocus />
+            </EditText>
+        </TableRow>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="140dp"
-        android:text="Hobbies"
-        android:textSize="20dp" />
+        <TableRow
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal" >
 
-    <EditText
-        android:id="@+id/etHobbies"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="82dp"
-        android:layout_marginTop="135dp"
-        android:hint="Enter Hobbies" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="E-mail"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal" >
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:hint="Enter new E-mail" />
+        </TableRow>
+    </TableLayout>
+
+     <LinearLayout
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content" >
 
     <Button
         android:id="@+id/bconfirmChangeEditPP"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etHobbies"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:text="Confirm Changes" />
+    </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

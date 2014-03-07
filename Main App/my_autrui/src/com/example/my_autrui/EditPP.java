@@ -1,6 +1,9 @@
 package com.example.my_autrui;
 
+import com.parse.ParseUser;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,34 +17,21 @@ public class EditPP extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.editpp);
 		Button confirmChangeEditPP = (Button) findViewById(R.id.bconfirmChangeEditPP);
-		EditText firstName = (EditText) findViewById(R.id.etFirstName);
-		EditText lastName = (EditText) findViewById(R.id.etLastName);
-		EditText email = (EditText) findViewById(R.id.etEmail);
-		EditText hobbies = (EditText) findViewById(R.id.etHobbies);
-
+		final EditText fullName = (EditText) findViewById(R.id.etFullName);
+		final EditText email = (EditText) findViewById(R.id.etEmail);
+		
+		final ParseUser userProfile = new ParseUser();
+		fullName.setText((String)userProfile.getString("username"));
+		email.setText((String)userProfile.getString("email"));
 		
 		confirmChangeEditPP.setOnClickListener(new View.OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				switch(v.getId()){
-				case R.id.bconfirmChangeEditPP:
-					
-					break;
-				case R.id.etFirstName:
-					
-					break;
-				case R.id.etLastName:
-					
-					break;
-				case R.id.etEmail:
-					
-					break;
-				case R.id.etHobbies:
-					
-					break;
-				}
+					userProfile.put("username", fullName.getText().toString());
+					userProfile.put("email", email.getText().toString());
+					Intent intent = new Intent(v.getContext(), MainActivity.class);
+					startActivityForResult(intent, 0);
 			}
 		});
 	}
