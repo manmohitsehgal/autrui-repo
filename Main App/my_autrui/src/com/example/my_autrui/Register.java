@@ -2,6 +2,7 @@ package com.example.my_autrui;
 import com.parse.*;	
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 //import android.graphics.Color;
 import android.os.Bundle;
@@ -48,6 +49,7 @@ public class Register extends Activity {
 					user.setUsername(userName.getText().toString());
 					user.setPassword(password.getText().toString());
 					user.setEmail(email.getText().toString());
+					user.put("fullName", fullName.getText().toString());
 					//Log.e("Message", "User object created: "+user.getUsername());
 					user.signUpInBackground(new SignUpCallback() 
 					{
@@ -70,12 +72,14 @@ public class Register extends Activity {
 				}
 			}	
 				
-			});
+		});
 	}
-
 	
 	@Override
 	   public void onBackPressed() {
-
-	    } 
+	    Intent setIntent = new Intent(this,Login.class);
+	    startActivity(setIntent); 
+	    finish();
+	}
+		
 }

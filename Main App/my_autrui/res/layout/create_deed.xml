@@ -9,18 +9,28 @@
         android:id="@+id/etCustomDeed"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:ellipsize="start"
         android:gravity="center"
-        android:hint="Please Enter Deed"
-        android:layout_marginTop="10dp"
-         >
+        android:hint="Please Enter Deed" >
     </EditText>
+
+    <EditText
+        android:id="@+id/etUserName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:hint="Enter User Name" >
+    </EditText>
+
     <Button
         android:id="@+id/bPostDeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Post Deed"
         android:layout_gravity="center"
-        ></Button>
+        android:text="Post Deed" >
+    </Button>
 
 </LinearLayout>

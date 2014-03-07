@@ -1,7 +1,12 @@
 package com.example.my_autrui;
 
+import java.util.List;
+
+import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseACL;
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
@@ -32,21 +37,38 @@ public class CreateDeed extends Activity{
 		ParseACL.setDefaultACL(defaultACL, true);
 		
 		Button postDeed = (Button) findViewById(R.id.bPostDeed);
-		final EditText customdeed = (EditText) findViewById(R.id.etCustomDeed);
+		final EditText customdeed = (EditText) findViewById(R.id.etCustomDeed);		
+		final EditText userName = (EditText) findViewById(R.id.etUserName);
 		
 		postDeed.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				// TODO Auto-generated method stu
 				ParseUser currentUser = ParseUser.getCurrentUser();
-				if(currentUser != null)
+				ParseQuery<ParseUser> query = ParseUser.getQuery();
+				query.whereEqualTo("fullName", userName.getText().toString());
+				try
 				{
-					String userId = currentUser.getObjectId();
-					ParseObject deedObject = new ParseObject("Deeds");
-					deedObject.put("deedDescription", customdeed.getText().toString());
-					deedObject.put("userId", userId);
-					deedObject.saveInBackground();
+					List<ParseUser> destUserObjects = query.find();
+					
+					if(destUserObjects.size() == 1)
+	 			{
+						if(currentUser != null)
+						{
+							ParseUser destUser = destUserObjects.get(0);
+							String userId = currentUser.getObjectId();
+							ParseObject deedObject = new ParseObject("Deeds");
+							deedObject.put("deedDescription", customdeed.getText().toString());
+							deedObject.put("userI dSrc", userId);
+							deedObject.put("userIdDest",destUser.getObjectId().toString());
+							deedObject.saveInBackground();
+						}
+					}
+				}
+				catch(ParseException e)
+				{
+					
 				}
 			}
 		});

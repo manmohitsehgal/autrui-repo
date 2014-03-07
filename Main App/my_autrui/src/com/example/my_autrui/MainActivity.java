@@ -91,9 +91,8 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 		specsTab = tbht.newTabSpec("tag3");
 		specsTab.setIndicator("Settings",res.getDrawable(R.drawable.tab_icon));
 		specsTab.setContent(R.id.tab3);
-		
+
 		tbht.addTab(specsTab);
-		
 		tbht.setCurrentTabByTag("tag1");
 		
 	}
@@ -106,12 +105,6 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 		return true;
 	}
 	
-	//Left blank so that it doesn't go back. 
-	@Override
-	   public void onBackPressed() {
-	    
-		
-	} 
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
@@ -133,7 +126,6 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 			startActivityForResult(intent, 0);
 			break;
 		case R.id.bChangePass:
-			
 			intent = new Intent(v.getContext(), ChangePassword.class);
 			startActivityForResult(intent, 0);
 			break;
