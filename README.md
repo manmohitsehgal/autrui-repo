@@ -13,7 +13,7 @@ The app is inspired by the Pay It Forward Movement. The idea is to respond to a 
 - [x] Code Repository Setup, Project Name, Product Backlog 
 - [x] Design Document
 - [x] Iteration ONE Sprint Planning Document
-- [ ] Iteration ONE Sprint Review Meeting (On Friday, March 7th)
+- [x] Iteration ONE Sprint Review Meeting 
 - [ ] Iteration ONE Sprint Retrospective (Due on Monday, March 10th)
 - [ ] Iteration TWO Sprint Planning Document (Due on Monday, March 10th)
 - [ ] Iteration TWO Sprint Review Meeting (On Friday, April 4th)
