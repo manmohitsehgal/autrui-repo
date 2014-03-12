@@ -14,8 +14,8 @@ The app is inspired by the Pay It Forward Movement. The idea is to respond to a 
 - [x] Design Document
 - [x] Iteration ONE Sprint Planning Document
 - [x] Iteration ONE Sprint Review Meeting 
-- [ ] Iteration ONE Sprint Retrospective (Due on Monday, March 10th)
-- [ ] Iteration TWO Sprint Planning Document (Due on Monday, March 10th)
+- [x] Iteration ONE Sprint Retrospective 
+- [x] Iteration TWO Sprint Planning Document 
 - [ ] Iteration TWO Sprint Review Meeting (On Friday, April 4th)
 - [ ] Iteration TWO Sprint Retrospective (Due on Monday, April 7th)
 - [ ] Iteration THREE Sprint Planning Document (Due on Monday, April 7th)
