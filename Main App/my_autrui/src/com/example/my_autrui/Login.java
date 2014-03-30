@@ -54,14 +54,22 @@ public class Login extends Activity {
 		defaultACL.setPublicReadAccess(true);
 		ParseACL.setDefaultACL(defaultACL, true);
 		ParseFacebookUtils.initialize("268313903329951");
-		
+
+
+		username = (EditText) findViewById(R.id.Username);
+		password = (EditText) findViewById(R.id.Password);		
 		Login = (Button) findViewById(R.id.Login);
 		Login.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(final View v) {
-				username = (EditText) findViewById(R.id.Username);
-				password = (EditText) findViewById(R.id.Password);
+
+				if(username.getText().length()==0) {
+					username.setError("Please enter Username");
+				}
+				if(password.getText().length()==0){
+					password.setError("Please enter Password");
+				}
 
 				ParseUser.logInInBackground(username.getText().toString(),
 						password.getText().toString(), new LogInCallback() {
