@@ -1,10 +1,8 @@
 package com.example.my_autrui;
 
-import android.app.Activity;	
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.parse.*;
 
 
 public class Splash extends Activity{

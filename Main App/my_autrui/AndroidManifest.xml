@@ -7,10 +7,10 @@
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="18" />
-    
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -21,6 +21,7 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.example.my_autrui.MAINACTIVITY" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -29,6 +30,7 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -37,37 +39,36 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.example.my_autrui.LOGIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".CreateDeed">    
+        <activity android:name=".CreateDeed" >
         </activity>
-        <activity
-            android:name=".Register">    
+        <activity android:name=".Register" >
         </activity>
-        <activity
-            android:name=".MyMovement">    
+        <activity android:name=".MyMovement" >
         </activity>
-        <activity
-            android:name=".ChooseDeed">    
+        <activity android:name=".ChooseDeed" >
         </activity>
-        <activity
-            android:name=".Help">    
+        <activity android:name=".Help" >
         </activity>
-        <activity
-            android:name=".AboutUs">    
+        <activity android:name=".AboutUs" >
         </activity>
-        <activity
-            android:name=".EditPP">    
+        <activity android:name=".EditPP" >
         </activity>
-        <activity
-            android:name=".ChangePassword">    
+        <activity android:name=".ChangePassword" >
         </activity>
-        <activity
-            android:name=".PostDeed">    
+        <activity android:name=".PostDeed" >
         </activity>
-               
+       
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:label="@string/app_name" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
     </application>
 
 </manifest>

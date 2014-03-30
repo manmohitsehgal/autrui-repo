@@ -3,6 +3,13 @@ package com.example.my_autrui;
 import java.util.Arrays;
 import java.util.List;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.facebook.FacebookRequestError;
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.model.GraphUser;
 import com.parse.*;
 
 import android.app.Activity;
@@ -10,10 +17,18 @@ import android.app.ProgressDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import com.facebook.Session;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseFacebookUtils;
+import com.parse.ParseUser;
+import com.parse.Parse;
+
 
 public class Login extends Activity {
 	private EditText username = null;
@@ -32,15 +47,12 @@ public class Login extends Activity {
 
 		Parse.initialize(this, "bF0ORwBlwjrv46DVMgfVswkFwMRo4KI67yfn4oWp",
 				"h7eVgwYn0ZRlIxkGAg7jwUPrDC7GMaNnMo8htmoy");
-		ParseFacebookUtils.initialize("268313903329951");
 		ParseACL defaultACL = new ParseACL();
-
-		// If you would like all objects to be private by default, remove this
-		// line.
+		
 		defaultACL.setPublicReadAccess(true);
-
 		ParseACL.setDefaultACL(defaultACL, true);
-
+		ParseFacebookUtils.initialize("268313903329951");
+		
 		Login = (Button) findViewById(R.id.Login);
 		Login.setOnClickListener(new View.OnClickListener() {
 
@@ -53,8 +65,7 @@ public class Login extends Activity {
 						password.getText().toString(), new LogInCallback() {
 							public void done(ParseUser user, ParseException e) {
 								if (user != null) {
-									// Hooray! The user is logged in.
-
+									
 									Intent intent = new Intent(v.getContext(),
 											MainActivity.class);
 									startActivityForResult(intent, 0);
@@ -65,10 +76,12 @@ public class Login extends Activity {
 								}
 							}
 						});
-
 			}
 		});
-
+		//Session session = ParseFacebookUtils.getSession();
+		//if(session != null && session.isOpened()){
+		//	makeMeRequest();
+		//}
 		Register = (Button) findViewById(R.id.Register);
 		Register.setOnClickListener(new View.OnClickListener() {
 
@@ -78,21 +91,88 @@ public class Login extends Activity {
 				startActivityForResult(intent, 0);
 			}
 		});
-
-		fbLogin = (Button) findViewById(R.id.facebookLogin);
+		
+		fbLogin = (Button) findViewById(R.id.fbLogin);
 		fbLogin.setOnClickListener(new View.OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
-				// onLoginButtonClicked();
+				// TODO Auto-generated method stub
+				onLoginButtonClicked();
 			}
-
 		});
+	}
+	
+	private void makeMeRequest() {
+		
+		Session session = ParseFacebookUtils.getSession();
+		
+		Request request = Request.newMeRequest(ParseFacebookUtils.getSession(),
+				new Request.GraphUserCallback() {
+					@Override
+					public void onCompleted(GraphUser user, Response response) {
+						if (user != null) {
+							// Create a JSON object to hold the profile info
+							JSONObject userProfile = new JSONObject();
+							try {
+								// Populate the JSON object
+								userProfile.put("facebookId", user.getId());
+								userProfile.put("name", user.getName());
+
+//
+//								if (user.getLocation().getProperty("name") != null) {
+//									userProfile.put("location", (String) user
+//											.getLocation().getProperty("name"));
+//								}
+//								if (user.getProperty("gender") != null) {
+//									userProfile.put("gender",
+//											(String) user.getProperty("gender"));
+//								}
+//								if (user.getBirthday() != null) {
+//									userProfile.put("birthday",
+//											user.getBirthday());
+//								}
+//								if (user.getProperty("relationship_status") != null) {
+//									userProfile
+//											.put("relationship_status",
+//													(String) user
+//															.getProperty("relationship_status"));
+//								}
+
+								// Save the user profile info in a user property
+								ParseUser currentUser = ParseUser
+										.getCurrentUser();
+								currentUser.put("profile", userProfile);
+								currentUser.saveInBackground();
+
+								// Show the user info
+								//updateViewsWithProfileInfo();
+							} catch (JSONException e) {
+								Log.d("Autrui",
+										"Error parsing returned user data.");
+							}
+
+						} else if (response.getError() != null) {
+							if ((response.getError().getCategory() == FacebookRequestError.Category.AUTHENTICATION_RETRY)
+									|| (response.getError().getCategory() == FacebookRequestError.Category.AUTHENTICATION_REOPEN_SESSION)) {
+								Log.d("Autrui",
+										"The facebook session was invalidated.");
+								//onLogoutButtonClicked();
+							} else {
+								Log.d("Autrui",
+										"Some other error: "
+												+ response.getError()
+														.getErrorMessage());
+							}
+						}
+					}
+				});
+		request.executeAsync();
+
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
+	
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -106,25 +186,27 @@ public class Login extends Activity {
 	private void onLoginButtonClicked() {
 		Login.this.progressDialog = ProgressDialog.show(Login.this, "",
 				"Logging in...", true);
-		List<String> permissions = Arrays.asList("basic_info", "user_about_me",
-				"user_relationships", "user_birthday", "user_location");
+		List<String> permissions = Arrays.asList("basic_info","user_about_me","user_relationships",
+				"user_birthday","user_location");
 		ParseFacebookUtils.logIn(permissions, this, new LogInCallback() {
+			@Override
 			public void done(ParseUser user, ParseException err) {
 				Login.this.progressDialog.dismiss();
 				if (user == null) {
 					System.out.println("Login Cancelled");
 				} else if (user.isNew()) {
-					showUserDetailsActivity();
+					makeMeRequest();
+					//showUserDetailsActivity();
 				} else {
+					makeMeRequest();
 					System.out.println("Login Succesful");
-					showUserDetailsActivity();
+					//showUserDetailsActivity();
 				}
 			}
 		});
 	}
 
 	private void showUserDetailsActivity() {
-		// TODO Auto-generated method stub
 		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
 	}

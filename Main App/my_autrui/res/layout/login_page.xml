@@ -79,12 +79,15 @@
         <TableRow>
 
             <Button
-                android:id="@+id/facebookLogin"
-                android:layout_width="fill_parent"
+                android:id="@+id/fbLogin"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/FaceBookLogin"
-                android:layout_centerHorizontal="true"
-                android:text="Facebook_Login" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/button_login"
+                android:text="Login"
+                android:textColor="#fff"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow>
