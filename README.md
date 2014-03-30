@@ -23,6 +23,19 @@ The app is inspired by the Pay It Forward Movement. The idea is to respond to a 
 - [ ] Iteration THREE Sprint Retrospective (Due on Monday, May 5th)
 - [ ] Teaming Experience Reflection Paper Dropbox closes (On Wednesday, May 7th)
 
+
+##Instructions##
+
+Once the project has been pulled from the master branch, you need to do the following to compile and run the project:
+
+-Remove the Splash project from your workspace(Delete it, but make sure to not delete the files from your computer)
+-Import the Main App folder
+-Import the facebook folder
+-Clean your project
+-Run as done so previously
+
+*Note: We have removed the facebook-android-sdk-3.7 folder as we will not be using that. Instead, we have added a facebook folder, which is needed for the facebook connection.
+
 ##Links##
 
 Wiki Page URL - https://github.com/mihirjham/autrui-repo/wiki
