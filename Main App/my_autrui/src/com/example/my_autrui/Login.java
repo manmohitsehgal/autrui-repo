@@ -12,7 +12,7 @@ import com.facebook.Response;
 import com.facebook.model.GraphUser;
 import com.parse.*;
 import android.app.Activity;
-import com.facebook.Session
+import com.facebook.Session;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;

@@ -89,7 +89,7 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 		
 		//For the tab - Settings
 		specsTab = tbht.newTabSpec("tag3");
-		specsTab.setIndicator("Settings",res.getDrawable(R.drawable.tab_icon));
+		specsTab.setIndicator("Settings");
 		specsTab.setContent(R.id.tab3);
 
 		tbht.addTab(specsTab);
@@ -107,43 +107,33 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 	
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		switch(v.getId()){
-		case R.id.bDeed:
+		int id = v.getId();
+		if (id == R.id.bDeed) {
 			intent = new Intent(v.getContext(), CreateDeed.class);
 			startActivityForResult(intent, 0);
-			break;
-		case R.id.bMovements:
+		} else if (id == R.id.bMovements) {
 			intent = new Intent(v.getContext(), MyMovement.class);
 			startActivityForResult(intent, 0);
-			break;
-		case R.id.bChoosedeed:
+		} else if (id == R.id.bChoosedeed) {
 			intent = new Intent(v.getContext(), ChooseDeed.class);
 			startActivityForResult(intent, 0);
-			break;
-		case R.id.bAboutUs:
+		} else if (id == R.id.bAboutUs) {
 			intent = new Intent(v.getContext(), AboutUs.class);
 			startActivityForResult(intent, 0);
-			break;
-		case R.id.bChangePass:
+		} else if (id == R.id.bChangePass) {
 			intent = new Intent(v.getContext(), ChangePassword.class);
 			startActivityForResult(intent, 0);
-			break;
-		case R.id.bEditPP:
+		} else if (id == R.id.bEditPP) {
 			intent = new Intent(v.getContext(), EditPP.class);
 			startActivityForResult(intent, 0);
-			break;
-		case R.id.bLogOut:
+		} else if (id == R.id.bLogOut) {
 			ParseUser currentUser = ParseUser.getCurrentUser();
 			currentUser.logOut();
 			intent = new Intent(v.getContext(), Login.class);
 			startActivityForResult(intent, 0);
-			break;
-		case R.id.bHelp:
+		} else if (id == R.id.bHelp) {
 			intent = new Intent(v.getContext(), Help.class);
 			startActivityForResult(intent, 0);
-			break;
-			
 		}
 		
 	}
