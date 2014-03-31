@@ -39,7 +39,7 @@ Once the project has been pulled from the master branch, you need to do the foll
 - Run as done so previously
 
 
-#Errors#
+###Errors###
 It can happen that you still might get errors and that is because you don't have the required SDK versions. I recommend to install API 8, 10, 14. If it still doesn't work then also install API 17,18.
 
 *Note: I have removed the previous facebook folder and added facebook-android-sdk-master which has an updated facebook folder.
