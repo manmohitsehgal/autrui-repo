@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Splash"
+            android:name="com.example.my_autrui.Splash"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login"
+            android:name="com.example.my_autrui.Login"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.example.my_autrui.LOGIN" />
@@ -43,25 +43,24 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateDeed" >
+        <activity android:name="com.example.my_autrui.CreateDeed" >
         </activity>
-        <activity android:name=".Register" >
+        <activity android:name="com.example.my_autrui.Register" >
         </activity>
-        <activity android:name=".MyMovement" >
+        <activity android:name="com.example.my_autrui.MyMovement" >
         </activity>
-        <activity android:name=".ChooseDeed" >
+        <activity android:name="com.example.my_autrui.ChooseDeed" >
         </activity>
-        <activity android:name=".Help" >
+        <activity android:name="com.example.my_autrui.Help" >
         </activity>
-        <activity android:name=".AboutUs" >
+        <activity android:name="com.example.my_autrui.AboutUs" >
         </activity>
-        <activity android:name=".EditPP" >
+        <activity android:name="com.example.my_autrui.EditPP" >
         </activity>
-        <activity android:name=".ChangePassword" >
+        <activity android:name="com.example.my_autrui.ChangePassword" >
         </activity>
-        <activity android:name=".PostDeed" >
+        <activity android:name="com.example.my_autrui.PostDeed" >
         </activity>
-       
         <activity
             android:name="com.facebook.LoginActivity"
             android:label="@string/app_name" />
@@ -69,6 +68,11 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/app_id" />
+
+        <activity
+            android:name="com.example.my_autrui.FbPassword"
+            android:label="@string/title_activity_fb_password" >
+        </activity>
     </application>
 
 </manifest>

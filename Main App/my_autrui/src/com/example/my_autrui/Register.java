@@ -32,17 +32,34 @@ public class Register extends Activity {
 		
 		ParseACL.setDefaultACL(defaultACL, true);
 		
+		fullName = (EditText)findViewById(R.id.FullName);
+		userName = (EditText)findViewById(R.id.userName);
+		password = (EditText)findViewById(R.id.PasswordField);
+		confirmPassword = (EditText)findViewById(R.id.ConfirmPasswordFields);
+		email =  (EditText)findViewById(R.id.Email);
+		
+		final ParseUser currentUser = ParseUser.getCurrentUser();
+//		if(currentUser != null){
+//			fullName.setText(currentUser.getString("fullName").toString());
+//			userName.setText(currentUser.getUsername().toString());
+//			email.setText(currentUser.getString("email"));
+//			}
+		
+			fullName.setText(currentUser.getString("fullName").toString());
+			userName.setText(currentUser.getUsername().toString());
+			email.setText(currentUser.getString("email"));
+	
 		Register = (Button)findViewById(R.id.RegisterNewUser);
 		Register.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(final View v) {
-				fullName = (EditText)findViewById(R.id.FullName);
-				userName = (EditText)findViewById(R.id.userName);
-				password = (EditText)findViewById(R.id.PasswordField);
-				confirmPassword = (EditText)findViewById(R.id.ConfirmPasswordFields);
-				email =  (EditText)findViewById(R.id.Email);
-				
+//				fullName = (EditText)findViewById(R.id.FullName);
+//				userName = (EditText)findViewById(R.id.userName);
+//				password = (EditText)findViewById(R.id.PasswordField);
+//				confirmPassword = (EditText)findViewById(R.id.ConfirmPasswordFields);
+//				email =  (EditText)findViewById(R.id.Email);
+								
 				if(password.getText().toString().equals(confirmPassword.getText().toString()))
 				{
 					ParseUser user = new ParseUser();

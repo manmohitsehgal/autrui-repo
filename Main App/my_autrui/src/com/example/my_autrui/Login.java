@@ -30,6 +30,7 @@ import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 import com.parse.Parse;
+import com.parse.SignUpCallback;
 
 
 public class Login extends Activity {
@@ -127,7 +128,7 @@ public class Login extends Activity {
 								// Populate the JSON object
 								userProfile.put("facebookId", user.getId());
 								userProfile.put("name", user.getName());
-
+							
 //
 //								if (user.getLocation().getProperty("name") != null) {
 //									userProfile.put("location", (String) user
@@ -149,18 +150,18 @@ public class Login extends Activity {
 //								}
 
 								// Save the user profile info in a user property
-								ParseUser currentUser = ParseUser
-										.getCurrentUser();
-								currentUser.put("profile", userProfile);
+								ParseUser currentUser = ParseUser.getCurrentUser();
+								currentUser.put("fullName", userProfile.get("name"));
+								currentUser.setUsername(user.getUsername());
+								currentUser.setEmail(user.getProperty("email").toString());
 								currentUser.saveInBackground();
-
 								// Show the user info
 								//updateViewsWithProfileInfo();
 							} catch (JSONException e) {
 								Log.d("Autrui",
 										"Error parsing returned user data.");
 							}
-
+							
 						} else if (response.getError() != null) {
 							if ((response.getError().getCategory() == FacebookRequestError.Category.AUTHENTICATION_RETRY)
 									|| (response.getError().getCategory() == FacebookRequestError.Category.AUTHENTICATION_REOPEN_SESSION)) {
@@ -197,7 +198,7 @@ public class Login extends Activity {
 		Login.this.progressDialog = ProgressDialog.show(Login.this, "",
 				"Logging in...", true);
 		List<String> permissions = Arrays.asList("basic_info","user_about_me","user_relationships",
-				"user_birthday","user_location");
+				"user_birthday","user_location", "email");
 		ParseFacebookUtils.logIn(permissions, this, new LogInCallback() {
 			@Override
 			public void done(ParseUser user, ParseException err) {
@@ -206,11 +207,12 @@ public class Login extends Activity {
 					System.out.println("Login Cancelled");
 				} else if (user.isNew()) {
 					makeMeRequest();
-					//showUserDetailsActivity();
+					showUserDetailsActivity();
 				} else {
 					makeMeRequest();
 					System.out.println("Login Succesful");
-					//showUserDetailsActivity();
+					
+					showUserDetailsActivity();
 				}
 			}
 		});

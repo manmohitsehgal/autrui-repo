@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">Autrui</string>
@@ -5,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="app_id">268313903329951</string>
     <string name="Facebook_Login">Facebook Login</string>
+    <string name="title_activity_fb_password">FbPassword</string>
 
 </resources>
