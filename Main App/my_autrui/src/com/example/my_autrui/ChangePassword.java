@@ -60,4 +60,18 @@ public class ChangePassword extends Activity {
 		});
 
 	}
+	
+	@Override
+	public void onBackPressed() {
+		finish();
+		// Go to settings
+		/*if(MainActivity.s.isEmpty())
+			return;
+		else {
+			View v = MainActivity.s.pop();
+			Class c = MainActivity.s2.pop();
+			Intent intent = new Intent(v.getContext(), c);
+			startActivityForResult(intent, 0);
+		}*/
+	}
 }

@@ -1,5 +1,7 @@
 package com.example.my_autrui;
 
+import java.util.Stack;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
+
 import com.parse.Parse;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
@@ -23,6 +26,8 @@ import com.facebook.*;
 public class MainActivity extends Activity implements View.OnClickListener   {
 	Intent intent = new Intent();
 	private MainFragment mainFragment;
+	public TabHost tbht;
+	Stack<Integer> s = new Stack<Integer>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +55,7 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 		
 		ParseACL.setDefaultACL(defaultACL, true);
 		
-		TabHost tbht = (TabHost) findViewById (R.id.tabhost);
+		tbht = (TabHost) findViewById (R.id.tabhost);
 		Resources res =getResources();
 		
 		//Buttons in all of the tabs
@@ -137,5 +142,19 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 		}
 		
 	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+	    if (keyCode == KeyEvent.KEYCODE_BACK) {
+			int curr = tbht.getCurrentTab();
+	    	if(!s.isEmpty())
+	    		tbht.setCurrentTab(s.pop());
+	    	s.add(curr);
+	        return true;
+	    }
+	    else
+	        return super.onKeyDown(keyCode, event); 
+	}
+
 
 }
