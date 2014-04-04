@@ -38,16 +38,16 @@ public class Register extends Activity {
 		confirmPassword = (EditText)findViewById(R.id.ConfirmPasswordFields);
 		email =  (EditText)findViewById(R.id.Email);
 		
-		final ParseUser currentUser = ParseUser.getCurrentUser();
+		//final ParseUser currentUser = ParseUser.getCurrentUser();
 //		if(currentUser != null){
 //			fullName.setText(currentUser.getString("fullName").toString());
 //			userName.setText(currentUser.getUsername().toString());
 //			email.setText(currentUser.getString("email"));
 //			}
 		
-			fullName.setText(currentUser.getString("fullName").toString());
-			userName.setText(currentUser.getUsername().toString());
-			email.setText(currentUser.getString("email"));
+			//fullName.setText(currentUser.getString("fullName").toString());
+			//userName.setText(currentUser.getUsername().toString());
+			//email.setText(currentUser.getString("email"));
 	
 		Register = (Button)findViewById(R.id.RegisterNewUser);
 		Register.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +66,7 @@ public class Register extends Activity {
 					user.setUsername(userName.getText().toString());
 					user.setPassword(password.getText().toString());
 					user.setEmail(email.getText().toString());
+					user.put("numPFRem", 0);
 					user.put("fullName", fullName.getText().toString());
 					//Log.e("Message", "User object created: "+user.getUsername());
 					user.signUpInBackground(new SignUpCallback() 

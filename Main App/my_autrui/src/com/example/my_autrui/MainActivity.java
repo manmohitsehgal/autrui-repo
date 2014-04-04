@@ -67,6 +67,7 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 		Button logout = (Button) findViewById (R.id.bLogOut);
 		Button changePass = (Button) findViewById (R.id.bChangePass);
 		Button chooseDeed = (Button) findViewById (R.id.bChoosedeed);
+		Button fbFriends = (Button) findViewById (R.id.bFbFriends);
 		
 		//On click listeners for all the buttons in all of the tabs
 		cDeed.setOnClickListener(this);
@@ -77,6 +78,7 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 		logout.setOnClickListener(this);
 		changePass.setOnClickListener(this);		
 		chooseDeed.setOnClickListener(this);
+		fbFriends.setOnClickListener(this);
 		
 		tbht.setup();
 		
@@ -139,7 +141,11 @@ public class MainActivity extends Activity implements View.OnClickListener   {
 		} else if (id == R.id.bHelp) {
 			intent = new Intent(v.getContext(), Help.class);
 			startActivityForResult(intent, 0);
+		} else if(id == R.id.bFbFriends){
+			intent = new Intent(v.getContext(), FbPassword.class);
+			startActivityForResult(intent,0);
 		}
+		
 		
 	}
 	

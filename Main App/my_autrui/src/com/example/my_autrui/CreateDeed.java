@@ -63,6 +63,8 @@ public class CreateDeed extends Activity{
 							deedObject.put("userIdSrc", userId);
 							deedObject.put("userIdDest",destUser.getObjectId().toString());
 							deedObject.saveInBackground();
+							
+							int numPFRem = (int)currentUser.getInt("numPFRem");
 						}
 					}
 				}

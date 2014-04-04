@@ -104,6 +104,12 @@
                         android:text="Edit Profile Page" />
 
                     <Button
+                        android:id="@+id/bFbFriends"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Facebook Friends" />
+                    <Button
                         android:id="@+id/bChangePass"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
