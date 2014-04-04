@@ -1,7 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="#4F80E1">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -15,7 +16,8 @@
                 android:layout_height="wrap_content"
                 android:text="Name"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#372c24" />
+                android:textColor="#292C44" 
+                android:textStyle="bold"/>
         </TableRow>
 
         <TableRow android:gravity="center_horizontal" >
@@ -27,7 +29,10 @@
                 android:ems="15"
                 android:inputType="text"
                 android:paddingBottom="5dip"
-                android:paddingTop="5dip" />
+                android:paddingTop="5dip" 
+                android:background="@drawable/rounded_edittext"
+        		android:textColor="#333745"
+        		android:textSize="15sp"/>
         </TableRow>
 
         <TableRow android:gravity="center_horizontal" >
@@ -38,7 +43,8 @@
                 android:layout_height="wrap_content"
                 android:text="User Name"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#372c24" />
+                android:textColor="#292C44" 
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow android:gravity="center_horizontal" >
@@ -52,7 +58,10 @@
                 android:ems="10"
                 android:inputType="text"
                 android:paddingBottom="5dip"
-                android:paddingTop="5dip" >
+                android:paddingTop="5dip"
+                android:background="@drawable/rounded_edittext"
+        		android:textColor="#333745"
+        		android:textSize="15sp" >
             </EditText>
         </TableRow>
 
@@ -64,7 +73,8 @@
                 android:layout_height="wrap_content"
                 android:text="Password"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#372c24" />
+                android:textColor="#292C44" 
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow android:gravity="center_horizontal" >
@@ -75,7 +85,10 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPassword"
-                android:paddingTop="5dip" />
+                android:paddingTop="5dip" 
+                android:background="@drawable/rounded_edittext"
+       			android:textColor="#333745"
+        		android:textSize="15sp"/>
         </TableRow>
 
         <TableRow android:gravity="center_horizontal" >
@@ -87,7 +100,8 @@
                 android:layout_marginBottom="5dp"
                 android:text="Confirm Password"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#372c24" />
+                android:textColor="#292C44" 
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow android:gravity="center_horizontal" > 
@@ -99,7 +113,10 @@
                 android:ems="10"
                 android:inputType="textPassword"
                 android:paddingBottom="5dip"
-                android:paddingTop="5dip" />
+                android:paddingTop="5dip" 
+                android:background="@drawable/rounded_edittext"
+        		android:textColor="#333745"
+        		android:textSize="15sp"/>
         </TableRow>
 
         <TableRow android:gravity="center_horizontal" >
@@ -110,7 +127,8 @@
                 android:layout_height="wrap_content"
                 android:text="Email"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#372c24" />
+                android:textColor="#292C44" 
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow android:gravity="center_horizontal" >
@@ -123,7 +141,10 @@
                 android:inputType="textEmailAddress"
                 android:paddingBottom="5dip"
                 android:paddingTop="5dip"
-                android:radius="10dip" />
+                android:radius="10dip"
+                android:background="@drawable/rounded_edittext"
+        		android:textColor="#333745"
+        		android:textSize="15sp" />
         </TableRow>
     </TableLayout>
 
@@ -134,10 +155,14 @@
 
         <Button
             android:id="@+id/RegisterNewUser"
-            android:layout_width="fill_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="14dp"
-            android:text="Register" />
+            android:layout_marginTop="20dp"
+            android:background="@drawable/postdeed_shape"
+            android:text="Register"
+            android:color="#FF5349" />
+
     </LinearLayout>
 
 </LinearLayout>

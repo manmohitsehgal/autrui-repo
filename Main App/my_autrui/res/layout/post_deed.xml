@@ -3,19 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="#046380">
 
     <EditText
         android:id="@+id/etPostDeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Post Here"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:ems="10"
+        android:inputType="text" 
+        android:ellipsize="start"
+        android:background="@drawable/rounded_edittext"
+        android:textColor="#333745"
+        android:textSize="15sp"
+        android:gravity="center_horizontal" />
+
     <Button
         android:id="@+id/PostDeedButton"
-        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="PostDeed" />
+        android:background="@drawable/postdeed_shape"
+        android:text="Post Deed"
+        android:textColor="#002F2F" />
+
 </LinearLayout>
+
+
+        

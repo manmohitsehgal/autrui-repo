@@ -3,15 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="#49404F">
 
     <EditText
         android:id="@+id/etCustomDeed"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:ellipsize="start"
         android:gravity="center"
+		android:background="@drawable/rounded_edittext"
+        android:textColor="#333745"        
         android:hint="Please Enter Deed" >
     </EditText>
 
@@ -22,15 +25,20 @@
         android:layout_marginTop="10dp"
         android:ellipsize="start"
         android:gravity="center"
+        android:background="@drawable/rounded_edittext"
+        android:textColor="#333745"
         android:hint="Enter User Name" >
     </EditText>
 
     <Button
         android:id="@+id/bPostDeed"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/deed_shape"
         android:text="Post Deed" >
+
     </Button>
 
 </LinearLayout>
