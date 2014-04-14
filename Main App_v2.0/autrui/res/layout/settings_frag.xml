@@ -6,9 +6,53 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="THIS IS SETTINGS FRAGMENT" />
+    		<LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <Button
+                        android:id="@+id/bAboutUs"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="About Us" />
+
+                    <Button
+                        android:id="@+id/bHelp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Help" />
+
+                    <Button
+                        android:id="@+id/bEditPP"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Edit Profile Page" />
+                    
+					<!--   Commented out until fb is added lol
+                    <Button
+                        android:id="@+id/bFbFriends"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Facebook Friends" /> -->
+                        
+                    <Button
+                        android:id="@+id/bChangePass"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Change Password" />
+
+                    <Button
+                        android:id="@+id/bLogOut"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Logout" />
+                </LinearLayout>
 
 </FrameLayout>

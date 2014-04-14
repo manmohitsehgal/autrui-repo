@@ -13,8 +13,19 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
         <activity
             android:name="com.example.autrui.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.autrui.MAINACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.example.autrui.Splash"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +33,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        
+        <activity android:name="com.example.autrui.CreateDeed" >
+        </activity>
+        <activity android:name="com.example.autrui.MyMovement" >
+        </activity>
+        <activity android:name="com.example.autrui.ChooseDeed" >
+        </activity>
+        <activity android:name="com.example.autrui.AboutUs" >
+        </activity>
+        <activity android:name="com.example.autrui.Help" >
+        </activity>
+        <activity android:name="com.example.autrui.EditPP" >
+        </activity>
+        <activity android:name="com.example.autrui.ChangePassword" >
+        </activity>
+        
+        <!--  
+        <activity android:name="com.example.autrui.Register" >
+        </activity>
+        <activity android:name="com.example.autrui.PostDeed" >
+        </activity>-->
+            
     </application>
 
 </manifest>

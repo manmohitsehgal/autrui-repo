@@ -1,0 +1,71 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow android:gravity="center_horizontal" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Full Name"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal" >
+
+            <EditText
+                android:id="@+id/etFullName"
+                android:layout_width="match_parent"
+                android:layout_marginTop="3dp"
+                android:hint="Enter First Name" >
+
+                <requestFocus />
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="E-mail"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal" >
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:hint="Enter new E-mail" />
+        </TableRow>
+    </TableLayout>
+
+     <LinearLayout
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content" >
+
+    <Button
+        android:id="@+id/bconfirmChangeEditPP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Confirm Changes" />
+    </LinearLayout>
+
+</LinearLayout>

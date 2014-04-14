@@ -6,9 +6,44 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="THIS IS MOVEMENT FRAGMENT" />
+    		<LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <Button
+                        android:id="@+id/bDeed"
+                        android:layout_width="200sp"
+						android:layout_height="200sp"
+						android:background="@drawable/deed_shape"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="50dp"
+                        android:text="Create a deed"
+                        android:textSize="30sp" 
+                        />
+
+                    <Button
+                        android:id="@+id/bChoosedeed"
+                       android:layout_width="200sp"
+						android:layout_height="200sp"
+						android:background="@drawable/choose_shape"
+                        android:layout_gravity="center"
+                        android:text="Choose a Deed"
+                        android:textSize="30sp" 
+                        android:layout_marginTop="30dp"
+                        />
+
+                    <Button
+                        android:id="@+id/bMovements"
+                       android:layout_width="200sp"
+						android:layout_height="200sp"
+						android:background="@drawable/movement_shape"
+                        android:layout_gravity="center"
+                        android:text="My Movements"
+                        android:textSize="30sp" 
+                        android:layout_marginTop="30dp"
+                        />
+                    
+                </LinearLayout>
 
 </FrameLayout>
