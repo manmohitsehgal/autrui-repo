@@ -33,8 +33,8 @@ Once the project has been pulled from the master branch, you need to do the foll
 
 ####Facebook Sdk####
 
--Download the facebook sdk from - https://github.com/facebook/facebook-android-sdk. (There is a option to download it as zip, please do that)
--Then unzip it and import the facebook folder by going into (facebook-android-sdk-master/facebook) also copy the contents into your workspace (This can be done by right clicking on the Eclipse Explorer and choosing Import)
+- Download the facebook sdk from - https://github.com/facebook/facebook-android-sdk. (There is a option to download it as zip, please do that)
+- Then unzip it and import the facebook folder by going into (facebook-android-sdk-master/facebook) also copy the contents into your workspace (This can be done by right clicking on the Eclipse Explorer and choosing Import)
 - Clean your project, there can be errors. (Note:The app works perfectly on my kindle, so you shouldn't have problems, Fragments looks good :) ) 
 
 #####Likely causes for Errors#####
