@@ -20,7 +20,7 @@ public class Splash extends Activity{
 				}catch (InterruptedException e){
 					e.printStackTrace();
 				}finally{
-					Intent openAutrui = new Intent("com.example.autrui.MAINACTIVITY");
+					Intent openAutrui = new Intent("com.example.autrui.LOGIN");
 					startActivity(openAutrui);
 			}
 		}

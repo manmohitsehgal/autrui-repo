@@ -32,13 +32,13 @@
                         android:layout_gravity="center"
                         android:text="Edit Profile Page" />
                     
-					<!--   Commented out until fb is added lol
+					<!--   Commented out until fb is added lol-->
                     <Button
                         android:id="@+id/bFbFriends"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Facebook Friends" /> -->
+                        android:text="Facebook Friends" /> 
                         
                     <Button
                         android:id="@+id/bChangePass"

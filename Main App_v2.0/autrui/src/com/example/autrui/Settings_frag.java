@@ -1,6 +1,8 @@
 package com.example.autrui;
 
 
+import com.parse.ParseUser;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -69,18 +71,18 @@ public class Settings_frag extends Fragment implements OnClickListener {
 		} else if (id == R.id.bEditPP) {
 			intent = new Intent(v.getContext(), EditPP.class);
 			startActivityForResult(intent, 0);
-		} /*else if (id == R.id.bLogOut) {
+		} else if (id == R.id.bLogOut) {
 			ParseUser currentUser = ParseUser.getCurrentUser();
 			currentUser.logOut();
 			intent = new Intent(v.getContext(), Login.class);
 			startActivityForResult(intent, 0);
-		}*/ else if (id == R.id.bHelp) {
+		} else if (id == R.id.bHelp) {
 			intent = new Intent(v.getContext(), Help.class);
 			startActivityForResult(intent, 0);
-		} /*else if(id == R.id.bFbFriends){
+		} else if(id == R.id.bFbFriends){
 			intent = new Intent(v.getContext(), FbPassword.class);
 			startActivityForResult(intent,0);
-		}*/
+		}
 	}
 
 }

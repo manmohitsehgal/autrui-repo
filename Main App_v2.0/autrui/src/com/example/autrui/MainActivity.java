@@ -34,7 +34,7 @@ public class MainActivity extends FragmentActivity implements TabListener
 				// TODO Auto-generated method stub
 				//To get an idea about which page is being selected
 				actionBar.setSelectedNavigationItem(arg0);
-				//Log.d("VIVZ", "onPageselected at "+" position "+arg0);
+				//Log.d("RISH", "onPageselected at "+" position "+arg0);
 
 			}
 			
@@ -42,7 +42,7 @@ public class MainActivity extends FragmentActivity implements TabListener
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
 				// TODO Auto-generated method stub
 				//To get an idea about the change of position from 0 to 1
-				//Log.d("VIVZ", "onPageScrolled at "+" position "+arg0+ " from "+arg1+" with number of pixels= "+arg2);
+				//Log.d("RISH", "onPageScrolled at "+" position "+arg0+ " from "+arg1+" with number of pixels= "+arg2);
 
 			}
 			
@@ -52,15 +52,15 @@ public class MainActivity extends FragmentActivity implements TabListener
 				// To get an idea about what is happening when the state of the page is changed
 				/*if(arg0==ViewPager.SCROLL_STATE_IDLE)
 				{
-					Log.d("VIVZ","onPageScrollStateChanged Idle");
+					Log.d("RISH","onPageScrollStateChanged Idle");
 				}
 				if(arg0==ViewPager.SCROLL_STATE_DRAGGING)
 				{
-					Log.d("VIVZ","onPageScrollStateChanged Dragging");
+					Log.d("RISH","onPageScrollStateChanged Dragging");
 				}
 				if(arg0==ViewPager.SCROLL_STATE_SETTLING)
 				{
-					Log.d("VIVZ","onPageScrollStateChanged Settling");
+					Log.d("RISH","onPageScrollStateChanged Settling");
 				}*/
 			}
 		});
@@ -88,7 +88,7 @@ public class MainActivity extends FragmentActivity implements TabListener
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
 		// TODO Auto-generated method stub
 		//To get an idea about which tab is selected
-		//Log.d("VIVZ", "onTabReselected at "+" position "+tab.getPosition()+" name "+tab.getText());
+		//Log.d("RISH", "onTabReselected at "+" position "+tab.getPosition()+" name "+tab.getText());
 		viewPgaer.setCurrentItem(tab.getPosition());
 	}
 
@@ -97,7 +97,7 @@ public class MainActivity extends FragmentActivity implements TabListener
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 		// TODO Auto-generated method stub
 		//To get an about which tab was unselected
-		//Log.d("VIVZ", "onTabReselected at "+" position "+tab.getPosition()+" name "+tab.getText());
+		//Log.d("RISH", "onTabReselected at "+" position "+tab.getPosition()+" name "+tab.getText());
 	}
 
 
@@ -105,7 +105,7 @@ public class MainActivity extends FragmentActivity implements TabListener
 	public void onTabReselected(Tab tab, FragmentTransaction ft) {
 		// TODO Auto-generated method stub
 		//To get an idea about which tab was selected AGAIN
-		//Log.d("VIVZ", "onTabReselected at "+" position "+tab.getPosition()+" name "+tab.getText());
+		//Log.d("RISH", "onTabReselected at "+" position "+tab.getPosition()+" name "+tab.getText());
 	}
 }
 
