@@ -29,20 +29,30 @@ The app is inspired by the Pay It Forward Movement. The idea is to respond to a 
 Once the project has been pulled from the master branch, you need to do the following to compile and run the project:
 
 - Remove the Splash project from your workspace(Delete it, but make sure to not delete the files from your computer)
-- Import the my_autrui folder which is inside Main App folder and copy the contents to your workspace (make sure the workspace is different from the autrui-repo)
-- Import the facebook folder by going into (Main App/facebook-android-sdk-master/) and then clicking on facebook, also copy the contents into your workspace
-- Clean your project
-- Next if all of the errors dont do away, right click on my_autrui (or the name of the folder which has our app) and then click on properties
+- Import the autrui folder which is inside Main App_v2.0 folder and copy the contents to your workspace (make sure the workspace is different from the autrui-repo)
+
+####Facebook Sdk####
+
+-Download the facebook sdk from - https://github.com/facebook/facebook-android-sdk. (There is a option to download it as zip, please do that)
+-Then unzip it and import the facebook folder by going into (facebook-android-sdk-master/facebook) also copy the contents into your workspace (This can be done by right clicking on the Eclipse Explorer and choosing Import)
+- Clean your project, there can be errors. (Note:The app works perfectly on my kindle, so you shouldn't have problems, Fragments looks good :) ) 
+
+#####Likely causes for Errors#####
+
+- Next if all of the errors dont do away, right click on autrui (or the name of the folder which has our app) and then click on properties
 - Then click on 'Android' on your left hand side and see if the library part of the window is empty (this will be near the bottom of the window).
-- If it is empty then add Facebook (If you have imported it correctly it should be called FacebookSDK) as a library and click on Apply and then Ok
+- If it is empty then add Facebook (If you have imported it correctly it should be called FacebookSDK) as a library and click on Apply, don't click on the Check box which says 'Is Library', and then click on Ok
+- You might also need to add External Jars for Parse and Android.support.v4.  This can be done by going into properties, Java Build Path, Libraries(Add external JARs, the jars are inside of the libs folder of autrui), Order and Export (Check the JAR files)
 - Clean your project
 - Run as done so previously
 
+###Note###
 
-###Errors###
-It can happen that you still might get errors and that is because you don't have the required SDK versions. I recommend to install API 8, 10, 14. If it still doesn't work then also install API 17,18.
+It can happen that you still might get errors and that is because you don't have the required SDK versions. I recommend to install API 8, 10, 14. If it still doesn't work then also install API 17,18. 
 
-*Note: I have removed the previous facebook folder and added facebook-android-sdk-master which has an updated facebook folder.
+BUT I HAVE NOW MADE THE MINIMUM SDK 15 AND MAX 19, SO YOU SHOULDN'T HAVE TO DOWNALOAD THE ABOVE SDKs.
+
+*Note: I have removed ALL the facebook folder and added facebook-android-sdk-master. 
 
 ##Links##
 
