@@ -48,8 +48,8 @@ public class Settings_frag extends Fragment implements OnClickListener {
 		 * Uncomment this when FB has been added *
 		 *****************************************/
 		
-		//Button fbFriends = (Button) findViewById (R.id.bFbFriends);
-		//fbFriends.setOnClickListener(this);
+		Button fbFriends = (Button) findViewById (R.id.bFbFriends);
+		fbFriends.setOnClickListener(this);
 
 		aboutUs.setOnClickListener(this);
 		help.setOnClickListener(this);
