@@ -1,9 +1,15 @@
 package com.example.autrui;
 
+import com.parse.ParseAnalytics;
+import com.parse.ParseInstallation;
+import com.parse.ParseUser;
+import com.parse.PushService;
+
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.ActionBar.TabListener;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -24,9 +30,13 @@ public class MainActivity extends FragmentActivity implements TabListener
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+		ParseUser currentUser = ParseUser.getCurrentUser();
 		viewPgaer=(ViewPager) findViewById(R.id.pager);
 		viewPgaer.setAdapter(new MyAdapter(getSupportFragmentManager()));
+		PushService.setDefaultPushCallback(this, MainActivity.class);
+		ParseAnalytics.trackAppOpened(getIntent());
+		ParseInstallation.getCurrentInstallation().saveInBackground();
+		PushService.subscribe(getApplicationContext(), currentUser.getObjectId(), MainActivity.class);
 		viewPgaer.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 			
 			@Override

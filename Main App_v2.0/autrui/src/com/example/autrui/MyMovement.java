@@ -4,13 +4,16 @@ package com.example.autrui;
 import java.util.List;
 
 import com.parse.Parse;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
@@ -38,12 +41,16 @@ public class MyMovement extends Activity {
 		ParseACL.setDefaultACL(defaultACL, true);
 
 		setContentView(new MyView(this));
+		
+		ParsePush push = new ParsePush();
+		
 		ParseUser currentUser = ParseUser.getCurrentUser();
 		ParseQuery deedQuery = new ParseQuery("Deeds");
 		ParseQuery movementQuery = new ParseQuery("Movements");
 		ParseQuery pfQuery = new ParseQuery("Deeds");
 		ParseQuery edgeQuery = new ParseQuery("Deeds");
 		
+		push.setChannel(currentUser.getObjectId());
 		
 		edgeQuery.whereEqualTo("MovementObj", true);
 		edgeQuery.whereEqualTo("ContainsID", false);
@@ -65,6 +72,7 @@ public class MyMovement extends Activity {
 			List<ParseObject> edgeCase = edgeQuery.find();
 			
 			int PayItForward = currentUser.getInt("PayItForward");
+			int oldPF = currentUser.getInt("PayItForward");
 			int i;
 			for(i = 0; i < pfRem.size(); i++) {
 				if(PayItForward + i >= 5)
@@ -80,6 +88,12 @@ public class MyMovement extends Activity {
 			else
 				PayItForward += (pfRem.size() * 2);
 			System.out.println("PayItForward " + PayItForward);
+			String message = "You have " + PayItForward + " new Pay It Forward(s)";
+			if(oldPF != PayItForward) {
+				System.out.println("Sending PF Push Notification");
+				push.setMessage(message);
+				push.sendInBackground();
+			}
 			for(i = 0; i < deeds.size(); i++) {
 				deeds.get(i).put("MovementObj", true);
 				deeds.get(i).saveInBackground();
@@ -90,6 +104,10 @@ public class MyMovement extends Activity {
 			ParseObject newMovement = new ParseObject("Movements");
 			if((movements.size() == 0 || PayItForward == 0)) {
 				if(deeds.size() != 0) {
+					message = "You created a new Movement!";
+					push.setMessage(message);
+					System.out.println("Sending Movement Push Notification");
+					push.sendInBackground();
 					ParseACL acl = new ParseACL();
 					acl.setPublicReadAccess(true);
 					acl.setPublicWriteAccess(true);
