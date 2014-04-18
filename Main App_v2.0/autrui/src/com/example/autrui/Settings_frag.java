@@ -44,9 +44,7 @@ public class Settings_frag extends Fragment implements OnClickListener {
 		Button logout = (Button) getActivity().findViewById (R.id.bLogOut);
 		Button changePass = (Button) getActivity().findViewById (R.id.bChangePass);
 		
-		/*****************************************
-		 * Uncomment this when FB has been added *
-		 *****************************************/
+		
 		
 		Button fbFriends = (Button) getActivity().findViewById (R.id.bFbFriends);
 		fbFriends.setOnClickListener(this);

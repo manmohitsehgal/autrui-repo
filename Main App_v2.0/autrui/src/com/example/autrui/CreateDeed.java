@@ -43,8 +43,9 @@ public class CreateDeed extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stu
+				// TODO Auto-generated method 
 				ParseUser currentUser = ParseUser.getCurrentUser();
+				ParseUser destUser;
 				ParseQuery<ParseUser> query = ParseUser.getQuery();
 				query.whereEqualTo("fullName", userName.getText().toString());
 				try
@@ -55,15 +56,25 @@ public class CreateDeed extends Activity{
 	 			{
 						if(currentUser != null)
 						{
-							ParseUser destUser = destUserObjects.get(0);
+							destUser = destUserObjects.get(0);
+							System.out.println(currentUser.getObjectId());
+							System.out.println(destUser.getObjectId());
 							String userId = currentUser.getObjectId();
 							ParseObject deedObject = new ParseObject("Deeds");
-							deedObject.put("deedDescription", customdeed.getText().toString());
+							deedObject.put("deedDescription", customdeed
+									.getText().toString());
 							deedObject.put("userIdSrc", userId);
-							deedObject.put("userIdDest",destUser.getObjectId().toString());
+							deedObject.put("userIdDest", destUser.getObjectId()
+									.toString());
+							deedObject.put("InMovement", false);
+							deedObject.put("MovementObj", false);
+							deedObject.put("ContainsID", false);
+							ParseACL acl = new ParseACL();
+							acl.setPublicReadAccess(true);
+							acl.setPublicWriteAccess(true);
+							deedObject.setACL(acl);
 							deedObject.saveInBackground();
-							
-							int numPFRem = (int)currentUser.getInt("numPFRem");
+
 						}
 					}
 				}

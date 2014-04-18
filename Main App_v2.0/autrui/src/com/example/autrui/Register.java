@@ -67,7 +67,9 @@ public class Register extends Activity {
 					user.setPassword(password.getText().toString());
 					user.setEmail(email.getText().toString());
 					user.put("numPFRem", 0);
+					user.put("PayItForward", 0);
 					user.put("fullName", fullName.getText().toString());
+					
 					//Log.e("Message", "User object created: "+user.getUsername());
 					user.signUpInBackground(new SignUpCallback() 
 					{
