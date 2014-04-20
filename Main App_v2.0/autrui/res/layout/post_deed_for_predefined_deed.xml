@@ -16,7 +16,7 @@
         android:ems="10"
         android:inputType="text" 
         android:ellipsize="start"
-        android:background="@drawable/rounded_edittext"
+        android:background="@drawable/rounded_edittext_bottom"
         android:textColor="#333745"
         android:textSize="15sp"
         android:gravity="center_horizontal" />
