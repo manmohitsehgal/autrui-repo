@@ -158,7 +158,7 @@
             android:background="@drawable/rounded_edittext_register_page"
             android:ems="14"
             android:hint="Enter Password"
-            android:inputType="text"
+        android:inputType="textPassword"
             android:textColor="#333745"
             android:textSize="25sp" />
     </LinearLayout>
@@ -191,7 +191,7 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/rounded_edittext_register_page"
             android:hint="Confirm Password"
-            android:inputType="text"
+        android:inputType="textPassword"
             android:textColor="#333745"
             android:textSize="26sp" />
     </LinearLayout>

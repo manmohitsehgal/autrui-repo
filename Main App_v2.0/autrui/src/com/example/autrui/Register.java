@@ -59,7 +59,27 @@ public class Register extends Activity {
 //				password = (EditText)findViewById(R.id.PasswordField);
 //				confirmPassword = (EditText)findViewById(R.id.ConfirmPasswordFields);
 //				email =  (EditText)findViewById(R.id.Email);
-								
+				
+				/***************************************************************
+				 * Tried to produce error message, not successful, please check*
+				 * When nothing is entered the app crashes,need to correct that*
+				 * When password's dont match, no error produced. NEED TO      *
+				 * CORRECT THAT.											   *
+				 ***************************************************************/
+				
+				/*if(userName.getText().length()==0) {
+					userName.setError("Please enter Username");
+				}
+				if(password.getText().length()==0){
+					password.setError("Please enter Password");
+				}
+				if(confirmPassword.getText().length()==0) {
+					confirmPassword.setError("Please enter Password");
+				}
+				if(email.getText().length()==0){
+					email.setError("Please re-enter Password");
+				}*/
+				
 				if(password.getText().toString().equals(confirmPassword.getText().toString()))
 				{
 					ParseUser user = new ParseUser();
