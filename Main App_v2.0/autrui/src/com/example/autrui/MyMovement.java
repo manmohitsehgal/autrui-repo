@@ -19,6 +19,7 @@ import com.parse.ParseUser;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 
 public class MyMovement extends Activity {
@@ -28,6 +29,7 @@ public class MyMovement extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.my_movement);
+		setVisible(true);
 
 		Parse.initialize(this, "bF0ORwBlwjrv46DVMgfVswkFwMRo4KI67yfn4oWp",
 				"h7eVgwYn0ZRlIxkGAg7jwUPrDC7GMaNnMo8htmoy");
@@ -112,6 +114,7 @@ public class MyMovement extends Activity {
 					acl.setPublicReadAccess(true);
 					acl.setPublicWriteAccess(true);
 					newMovement.setACL(acl);
+					newMovement.put("Access", 1);
 					newMovement.put("UserID", currentUser.getObjectId());
 					newMovement.addAll("Deeds", deeds);
 					newMovement.saveInBackground();
@@ -129,8 +132,9 @@ public class MyMovement extends Activity {
 						}
 						else {
 							PayItForward--;
-							String movID = movRef.get(j);
-							movRef.remove(j);
+							String movID = movRef.get(j++);
+							if(j == movRef.size())
+								j = movRef.size() - 1;
 							System.out.println(movID);
 							edgeCase.get(i).put("MovementID", movID);
 							ParseQuery whichMovement = new ParseQuery("Movements");
@@ -158,6 +162,8 @@ public class MyMovement extends Activity {
 					else {
 						PayItForward--;
 						String movID = movRef.get(j++);
+						if(j == movRef.size())
+							j = movRef.size() - 1;
 						System.out.println(movID);
 						edgeCase.get(i).put("MovementID", movID);
 						ParseQuery whichMovement = new ParseQuery("Movements");
@@ -178,7 +184,7 @@ public class MyMovement extends Activity {
 					else {
 						System.out.println("Inside the correct place");
 						PayItForward--;
-						String movID = movRef.get(j);
+						String movID = movRef.get(j++);
 						if(j == movRef.size())
 							j = movRef.size() - 1;
 						System.out.println(movID);
@@ -201,9 +207,58 @@ public class MyMovement extends Activity {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+	}
+	@Override
+	public void onBackPressed() {
 		
-
-
+		System.out.println("OnBack Successautrui");
+		ParseUser currentUser = ParseUser.getCurrentUser();
+		ParseQuery edgeQuery = new ParseQuery("Deeds");
+		ParseQuery movementQuery = new ParseQuery("Movements");
+		
+		
+		edgeQuery.whereEqualTo("MovementObj", true);
+		edgeQuery.whereEqualTo("ContainsID", false);
+		edgeQuery.whereEqualTo("userIdSrc", currentUser.getObjectId());
+		movementQuery.whereEqualTo("UserID", currentUser.getObjectId());
+		
+		int PayItForward = currentUser.getInt("PayItForward");
+		int j = 0;
+		
+		try {
+			
+			List<ParseObject> edgeCase = edgeQuery.find();
+			List<ParseObject> movements = movementQuery.find();
+			List<String> movementIds = (List<String>) currentUser.get("MovementID");
+			List<String> movRef = movementIds;
+			
+			for(int i = 0; i < edgeCase.size(); i++) {
+				System.out.println("Here in edge case loop");
+				edgeCase.get(i).put("ContainsID", true);
+				if(PayItForward == 0) {
+					edgeCase.get(i).put("MovementID", movements.get(0).getObjectId());
+					movements.get(0).add("Deeds", edgeCase.get(i));
+					movements.get(0).saveInBackground();
+				}
+				else {
+					PayItForward--;
+					String movID = movRef.get(j++);
+					if(j == movRef.size())
+						j = movRef.size() - 1;
+					System.out.println(movID);
+					edgeCase.get(i).put("MovementID", movID);
+					ParseQuery whichMovement = new ParseQuery("Movements");
+					List<ParseObject> addTo = (List<ParseObject>) whichMovement.find();
+					addTo.get(0).add("Deeds", edgeCase.get(i));
+					addTo.get(0).saveInBackground();
+				}
+			}
+			
+		}
+		catch (ParseException e) {
+			e.printStackTrace();
+		}
+		finish();
 	}
 }
 

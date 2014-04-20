@@ -117,6 +117,11 @@ public class MainActivity extends FragmentActivity implements TabListener
 		//To get an idea about which tab was selected AGAIN
 		//Log.d("RISH", "onTabReselected at "+" position "+tab.getPosition()+" name "+tab.getText());
 	}
+	
+	@Override
+	public void onBackPressed() {
+		return;
+	}
 }
 
 class MyAdapter extends FragmentPagerAdapter
@@ -151,4 +156,5 @@ class MyAdapter extends FragmentPagerAdapter
 		return 3;
 	
 	}
+	
 }
