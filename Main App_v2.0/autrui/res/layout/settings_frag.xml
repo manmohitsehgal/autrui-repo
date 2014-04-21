@@ -4,52 +4,77 @@
     android:layout_height="match_parent"
     tools:context="com.example.autrui.Settings_frag" >
 
-    		<LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-                    <Button
-                        android:id="@+id/bAboutUs"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="About Us" />
+        <Button
+            android:id="@+id/bAboutUs"
+            android:layout_width="wrap_content"
+            android:layout_height="125dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/button_settingspage_upper"
+            android:ems="15"
+            android:text="About Us"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
 
-                    <Button
-                        android:id="@+id/bHelp"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Help" />
+        <Button
+            android:id="@+id/bHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="125dp"
+            android:layout_gravity="center"
+            android:background="@drawable/help_button_color"
+            android:ems="15"
+            android:text="Help"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
 
-                    <Button
-                        android:id="@+id/bEditPP"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Edit Profile Page" />
-                    
-                    <Button
-                        android:id="@+id/bFbFriends"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Facebook Friends" /> 
-                        
-                    <Button
-                        android:id="@+id/bChangePass"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Change Password" />
+        <Button
+            android:id="@+id/bEditPP"
+            android:layout_width="wrap_content"
+            android:layout_height="125dp"
+            android:layout_gravity="center"
+            android:background="@drawable/editprofile_button_color"
+            android:ems="15"
+            android:text="Edit Profile Page"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
 
-                    <Button
-                        android:id="@+id/bLogOut"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Logout" />
-                </LinearLayout>
+        <Button
+            android:id="@+id/bFbFriends"
+            android:layout_width="wrap_content"
+            android:layout_height="125dp"
+            android:layout_gravity="center"
+            android:background="@drawable/facebookfriends_button_color"
+            android:ems="15"
+            android:text="Facebook Friends"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/bChangePass"
+            android:layout_width="wrap_content"
+            android:layout_height="125dp"
+            android:layout_gravity="center"
+            android:background="@drawable/changepassword_button_color"
+            android:ems="15"
+            android:text="Change Password"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/bLogOut"
+            android:layout_width="wrap_content"
+            android:layout_height="125dp"
+            android:layout_gravity="center"
+            android:background="@drawable/logout_button_color"
+            android:ems="15"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+    </LinearLayout>
 
 </FrameLayout>

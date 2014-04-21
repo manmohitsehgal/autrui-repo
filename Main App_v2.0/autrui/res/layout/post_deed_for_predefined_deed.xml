@@ -4,32 +4,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:background="#046380">
+    android:background="#49404F">
 
     <EditText
         android:id="@+id/etPostDeed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Post Here"
+        android:layout_width="470dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
-        android:layout_marginTop="120dp"
-        android:ems="10"
-        android:inputType="text" 
+        android:layout_marginTop="50dp"
+        android:background="@drawable/rounded_edittext_upper"
         android:ellipsize="start"
-        android:background="@drawable/rounded_edittext_bottom"
-        android:textColor="#333745"
-        android:textSize="15sp"
-        android:gravity="center_horizontal" />
+        android:textColor="#333745" 
+        android:textSize="26sp"/>
 
+    <EditText
+        android:id="@+id/etUserNameForPreDefinedDeed"
+        android:layout_width="470dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_edittext_bottom"
+        android:ellipsize="start"
+        android:hint="                         Enter Full Name"
+        android:textColor="#333745" 
+        android:textSize="23sp">
+    </EditText>
+    
     <Button
         android:id="@+id/PostDeedButton"
-        android:layout_marginTop="20dp"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
+        android:layout_marginTop="60dp"
         android:background="@drawable/postdeed_shape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
         android:text="Post Deed"
-        android:textColor="#002F2F" />
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
 
 </LinearLayout>
 
