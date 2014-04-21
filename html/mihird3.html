@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type ="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+		<script src="//www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+	</head>
+	
+	<body>
+		<div id="viz"></div>
+		<script type="text/javascript">
+			
+			Parse.initialize("bF0ORwBlwjrv46DVMgfVswkFwMRo4KI67yfn4oWp", "iku92IVovylbRwXVzKyZB67s9n0AtJnPL4yGx8z6");
+			
+			var DeedsClass = Parse.Object.extend("Deeds");
+			var query = new Parse.Query(DeedsClass);
+			query.equalTo("userIdSrc", "sFtncEtgge");
+			query.find(
+				{
+					success: function(results)
+							{
+								var i = results.length;
+								var j = 0;
+								var dataset = [];
+								for(j = 0; j < i; j++)
+								{
+									var ParseObject = results[j];
+									//document.write(ParseObject.get("deedDescription"));
+									//document.write("<br>");
+									dataset.push(Math.round(Math.random()*100));
+								}
+								var sampleSVG = d3.select("#viz")
+											.append("svg")
+											.attr("width", 1000)
+											.attr("height", 1000);
+								
+								var x = 500;
+								var y = 500;
+								var radius = 50;
+								var m = 500;
+								var r = 4*m/5;
+								var r2 = Math.abs(m-r)/2;
+
+								sampleSVG.append("circle")
+									.style("stroke", "gray")
+									.style("fill", "white")
+									.attr("r", radius)
+									.attr("cx", x)
+									.attr("cy", y);
+								
+								for(k = 0; k < i; k++)
+								{
+									var t = 2 * Math.PI * k / i;
+									var a = Math.round(x + r * Math.cos(t));
+									var b = Math.round(y + r * Math.sin(t));
+									
+									sampleSVG.append("circle")
+										.style("stroke", "gray")
+										.style("fill", "white")
+										.attr("r", r2)
+										.attr("cx", a - r2)
+										.attr("cy", b - r2)
+										.on("mouseover", function()
+												{
+													d3.select(this).style("fill", "aliceblue");
+												})
+										.on("mouseout", function()
+												{
+													d3.select(this).style("fill", "white");
+												})
+										.on("mousedown", animateFirstStep);
+									
+									var lineData = [ { "x": x, "y": y}, { "x": a-r2, "y": b-r2 }];
+
+									var lineFunction = d3.svg.line()
+												.x(function(d) { return d.x; })
+												.y(function(d) { return d.y; })
+												.interpolate("linear");
+									sampleSVG.append("path")
+										.attr("d", lineFunction(lineData))
+										.attr("stroke", "blue")
+										.attr("stroke-width", 2)
+										.attr("fill", "none");
+								
+								}
+								
+								/*var lineData = [ { "x": 20, "y": 20}, { "x": 40, "y": 60}];
+
+								var lineFunction = d3.svg.line()
+											.x(function(d) { return d.x; })
+											.y(function(d) { return d.y; })
+											.interpolate("linear");
+
+								sampleSVG.append("path")
+									.attr("d", lineFunction(lineData))
+									.attr("stroke", "blue")
+									.attr("stroke-width", 2)
+									.attr("fill", "none");*/
+
+								/*sampleSVG.selectAll("circle")
+									.data(dataset)
+									.enter().append("circle")
+									.style("stroke", "gray")
+									.style("fill", "white")
+									.attr("r", 40)
+									.attr("cx", function(d,i)
+											{
+												return i*100;
+											})
+									.attr("cy", 50)
+									.on("mouseover", function()
+											{
+												d3.select(this).style("fill", "aliceblue");
+											})
+									.on("mouseout", function()
+											{
+												d3.select(this).style("fill", "white");
+											})
+									.on("mousedown", animateFirstStep);*/
+
+								function animateFirstStep()
+								{
+									d3.select(this)
+										.transition()
+										.delay(0)
+										.duration(1000)
+										.attr("r", 10)
+										.each("end", animateSecondStep);
+								};
+
+								function animateSecondStep()
+								{
+									d3.select(this)
+										.transition()
+										.duration(1000)
+										.attr("r", 50);
+								};
+							}
+				});
+
+			/*var dataset = [];
+			var i = 0;
+
+			for(i = 0; i < 9; i++)
+			{
+				dataset.push(Math.round(Math.random()*100));
+				//document.write(dataset[i]);
+				//document.write("<br>");
+			}*/
+
+
+			/*var DeedsClass = Parse.Object.extend("Deeds");
+			var query = new Parse.Query(DeedsClass);
+			query.equalTo("userIdSrc", "sFtncEtgge");
+			query.find(
+					{
+						success: function(results)
+						{
+							var dataset = [];							
+							var j = results.length;
+							var k = 0;
+							
+							for(k = 0; k < j; k++)
+							{
+								//document.write("success ");
+								//var ParseObject = results[k];
+								//dataset.push(ParseObject.get("deedDescription"));	
+								//dataset.push(Math.round(Math.random()*100));	
+								document.write(ParseObject.get("deedDescription"));
+								document.write("<br>");
+							}
+
+							var sampleSVG = d3.select("#viz")
+										.append("svg")
+										.attr("width", 1000)
+										.attr("height", 1000);
+
+							sampleSVG.selectAll("circle")
+								.data(dataset)
+								.enter().append("circle")
+								.style("stroke", "gray")
+								.style("fill", "white")
+								.attr("r", 40)
+								.attr("cx", function(d,i)
+									{
+										return i*100;
+									})
+								.attr("cy", 50)
+								.on("mouseover", function()
+									{
+										d3.select(this).style("fill", "aliceblue");
+									})
+								.on("mouseout", function()
+									{
+										d3.select(this).style("fill", "white");
+									})
+								.on("mousedown", animateFirstStep);
+
+							function animateFirstStep()
+							{
+								d3.select(this)
+									.transition()
+									.delay(0)
+									.duration(1000)
+									.attr("r", 10)
+									.each("end", animateSecondStep);
+							};
+
+							function animateSecondStep()
+							{
+								d3.select(this)
+									.transition()
+									.duration(1000)
+									.attr("r", 50);
+							};	
+						}
+							
+					
+					}
+				});*/
+
+
+			/*var sampleSVG = d3.select("#viz")
+				.append("svg")
+				.attr("width", 1000)
+				.attr("height", 1000);
+
+			sampleSVG.selectAll("circle")
+				.data(dataset)
+				.enter().append("circle")
+				.style("stroke", "gray")
+				.style("fill", "white")
+				.attr("r", 40)
+				.attr("cx", function(d,i)
+						{
+							return i*100;
+						})
+				.attr("cy", 50)
+				.on("mouseover", function()
+						{
+							d3.select(this).style("fill", "aliceblue");
+						})
+				.on("mouseout", function()
+						{
+							d3.select(this).style("fill", "white");
+						})
+				.on("mousedown", animateFirstStep);
+
+			function animateFirstStep()
+			{
+				d3.select(this)
+					.transition()
+					.delay(0)
+					.duration(1000)
+					.attr("r", 10)
+					.each("end", animateSecondStep);
+			};
+
+			function animateSecondStep()
+			{
+				d3.select(this)
+					.transition()
+					.duration(1000)
+					.attr("r", 50);
+			};*/
+		</script>
+	</body>
+</html>
