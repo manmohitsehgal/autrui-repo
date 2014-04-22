@@ -13,35 +13,38 @@
 
                     <Button
                         android:id="@+id/bDeed"
-                        android:layout_width="200sp"
-						android:layout_height="200sp"
+                        android:layout_width="550sp"
+						android:layout_height="250sp"
 						android:background="@drawable/mainpagebutton_shape"
                         android:layout_gravity="center"
-                        android:layout_marginTop="60dp"
+                        android:layout_marginTop="40dp"
                         android:text="Create a deed"
-                        android:textSize="30sp" 
+                        android:textSize="70sp" 
+                        android:textColor="#fff"
                         />
 
                     <Button
                         android:id="@+id/bChoosedeed"
-                       android:layout_width="200sp"
-						android:layout_height="200sp"
+                       android:layout_width="550sp"
+						android:layout_height="250sp"
 						android:background="@drawable/choose_shape"
                         android:layout_gravity="center"
                         android:text="Choose a Deed"
-                        android:textSize="30sp" 
-                        android:layout_marginTop="30dp"
+                        android:textSize="70sp" 
+                        android:layout_marginTop="10dp"
+                        android:textColor="#fff"
                         />
 
                     <Button
                         android:id="@+id/bMovements"
-                       android:layout_width="200sp"
-						android:layout_height="200sp"
+                       android:layout_width="550sp"
+						android:layout_height="250sp"
 						android:background="@drawable/movement_shape"
                         android:layout_gravity="center"
                         android:text="My Movements"
-                        android:textSize="30sp" 
-                        android:layout_marginTop="30dp"
+                        android:textSize="70sp" 
+                        android:layout_marginTop="10dp"
+                        android:textColor="#fff"
                         />
                     
                 </LinearLayout>
