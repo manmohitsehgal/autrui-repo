@@ -1,0 +1,40 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.autrui.Global_Impact_frag" >
+
+    <!--
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="THIS IS GLOBAL FRAGMENT" />
+        
+    <WebView 
+           
+        android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:id="@+id/webviewglobal" 
+           />
+    -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" 
+	    >
+	    <Button
+	         android:id="@+id/bglobalImpactView"
+            android:layout_width="wrap_content"
+            android:layout_height="125dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"
+            android:background="@drawable/help_button_color"
+            android:ems="13"
+            android:text="View Global Impact"
+            android:textColor="#FFFFFF"
+            android:textSize="35sp"
+	        ></Button>
+    </LinearLayout>
+
+</FrameLayout>
