@@ -268,6 +268,7 @@ class MyView extends View {
 		// TODO Auto-generated constructor stub
 	}
 
+	
 	@Override
 	protected void onDraw(Canvas canvas) {
 		// TODO Auto-generated method stub
@@ -318,4 +319,7 @@ class MyView extends View {
             canvas.drawLine(x, y, a - r2, b - r2, lineColor);
         }
 	}
+
+
 }
+
