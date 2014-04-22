@@ -21,9 +21,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.WebView;
 
 public class MyMovement extends Activity {
 
+	
+	private WebView mWebView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -42,7 +45,7 @@ public class MyMovement extends Activity {
 
 		ParseACL.setDefaultACL(defaultACL, true);
 
-		setContentView(new MyView(this));
+		//setContentView(new MyView(this));
 		
 		ParsePush push = new ParsePush();
 		
@@ -207,6 +210,10 @@ public class MyMovement extends Activity {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		
+		mWebView =(WebView) findViewById(R.id.webview);
+		mWebView.getSettings().setJavaScriptEnabled(true);
+		mWebView.loadUrl("http://www.mihirjham.com");
 	}
 	@Override
 	public void onBackPressed() {
@@ -262,7 +269,7 @@ public class MyMovement extends Activity {
 	}
 }
 
-class MyView extends View {
+/*class MyView extends View {
 	public MyView(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
@@ -320,6 +327,5 @@ class MyView extends View {
         }
 	}
 
-
-}
+}*/
 
