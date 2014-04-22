@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.webkit.WebView;
 import android.widget.Button;
 
 /**
@@ -14,7 +15,7 @@ import android.widget.Button;
  * 
  */
 
-public class Global_Impact_frag extends Fragment implements OnClickListener {
+public class Global_Impact_frag extends Fragment  {
 
 	Intent intent = new Intent();
 	public Global_Impact_frag() {
@@ -34,14 +35,18 @@ public class Global_Impact_frag extends Fragment implements OnClickListener {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		
 		super.onActivityCreated(savedInstanceState);
-
+		WebView mwebview;
+		mwebview =(WebView) getActivity().findViewById(R.id.webviewglobal);
+		mwebview.getSettings().setJavaScriptEnabled(true);
+		mwebview.loadUrl("http://www.mihirjham.com");
+	
 		
-		Button globalImpactView = (Button) getActivity().findViewById(R.id.bglobalImpactView);
-		globalImpactView.setOnClickListener(this);
+		//Button globalImpactView = (Button) getActivity().findViewById(R.id.bglobalImpactView);
+		//globalImpactView.setOnClickListener(this);
 		
 	}
 	
-	@Override
+	/*@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		int ides=v.getId();
@@ -50,6 +55,6 @@ public class Global_Impact_frag extends Fragment implements OnClickListener {
 			intent = new Intent(v.getContext(), GlobalImpactWebView.class);
 			startActivityForResult(intent, 0);
 		}
-	}
+	}*/
 
 }
