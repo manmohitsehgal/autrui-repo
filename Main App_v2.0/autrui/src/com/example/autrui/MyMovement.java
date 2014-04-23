@@ -85,6 +85,7 @@ public class MyMovement extends Activity {
 				pfRem.get(i).put("InMovement", true);
 				System.out.println("Here");
 				currentUser.add("MovementID", (String)pfRem.get(i).get("MovementID"));
+				
 				pfRem.get(i).saveInBackground();
 			}
 			currentUser.saveInBackground();
@@ -213,7 +214,7 @@ public class MyMovement extends Activity {
 		
 		mWebView =(WebView) findViewById(R.id.webview);
 		mWebView.getSettings().setJavaScriptEnabled(true);
-		mWebView.loadUrl("http://www.mihirjham.com");
+		mWebView.loadUrl("http://web.ics.purdue.edu/~mjham/example2.html");
 	}
 	@Override
 	public void onBackPressed() {

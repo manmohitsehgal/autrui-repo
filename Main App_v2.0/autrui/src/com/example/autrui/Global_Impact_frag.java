@@ -38,7 +38,7 @@ public class Global_Impact_frag extends Fragment  {
 		WebView mwebview;
 		mwebview =(WebView) getActivity().findViewById(R.id.webviewglobal);
 		mwebview.getSettings().setJavaScriptEnabled(true);
-		mwebview.loadUrl("http://www.mihirjham.com");
+		mwebview.loadUrl("http://web.ics.purdue.edu/~mjham/autrui_test.html");
 	
 		
 		//Button globalImpactView = (Button) getActivity().findViewById(R.id.bglobalImpactView);
