@@ -5,11 +5,52 @@
     android:background="#99CC00">
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textviewMovement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:gravity="left"
-        android:text="Tap on the 'My movements' button to view all the movements you are part of."
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="20dp"
+        android:text="How to view My Movements?"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/textviewMovStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewMovement"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="20dp"
+        android:text="Step One"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/firstpicMov"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewMovStep"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/view_movements_step1" />
+    
+    <TextView
+        android:id="@+id/textviewMovStep2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/firstpicMov"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="20dp"
+        android:text="You will view something like this drawing below"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/secondpicMov"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewMovStep2"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/movement_example" />
 </RelativeLayout>

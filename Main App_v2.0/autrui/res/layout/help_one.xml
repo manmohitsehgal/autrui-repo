@@ -1,15 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#FFCC00">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFCC00" >
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textviewDeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:gravity="left"
-        android:text="Tap on the 'Create a deed' button. You will be shown a blank screen where you can type your deed and add the recipient of the said deed."
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="20dp"
+        android:text="How to Create a Deed?"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textviewStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewDeed"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="20dp"
+        android:text="Step One"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/firstpic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewStep"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/create_deed_step1" />
+
+    <TextView
+        android:id="@+id/textviewStep2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/firstpic"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="20dp"
+        android:text="Step Two"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/secondpic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewStep2"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/create_deed_step2" />
+
 </RelativeLayout>
