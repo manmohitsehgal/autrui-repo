@@ -13,6 +13,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,7 +41,12 @@ public class CreateDeed extends Activity{
 		Button postDeed = (Button) findViewById(R.id.bPostDeed);
 		final EditText customdeed = (EditText) findViewById(R.id.etCustomDeed);		
 		final EditText userName = (EditText) findViewById(R.id.etUserName);
-		
+
+		Intent intent = getIntent();
+		if(intent.getExtras() != null)
+		{
+			customdeed.setText(intent.getExtras().getString("selectedText"));
+		}
 		postDeed.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -98,9 +104,13 @@ public class CreateDeed extends Activity{
 				{
 					
 				}
+				showUserDetailsActivity();
 			}
 		});
 	}
-	
+	public void showUserDetailsActivity() {
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
+	}
 
 }

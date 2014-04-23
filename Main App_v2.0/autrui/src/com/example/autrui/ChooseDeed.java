@@ -66,7 +66,7 @@ public class ChooseDeed extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		//String cheese= classes[position];
 		//Class ourClass = Class.forName("."+cheese);
-		Intent ourIntent = new Intent(ChooseDeed.this, PostDeed.class);
+		Intent ourIntent = new Intent(ChooseDeed.this, CreateDeed.class);
 		ourIntent.putExtra("selectedText", classes[position]);
 		startActivity(ourIntent);
 	}

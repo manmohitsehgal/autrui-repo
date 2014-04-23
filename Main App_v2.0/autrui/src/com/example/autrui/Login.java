@@ -13,8 +13,11 @@ import com.facebook.model.GraphUser;
 import com.parse.*;
 import android.app.Activity;
 import com.facebook.Session;
+
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +25,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.content.DialogInterface;
 
 import com.parse.LogInCallback;
 import com.parse.Parse;
@@ -31,7 +35,6 @@ import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 import com.parse.Parse;
 import com.parse.SignUpCallback;
-
 
 public class Login extends Activity {
 	private EditText username = null;
@@ -44,40 +47,82 @@ public class Login extends Activity {
 	// private MainFragment mainFragment;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login_page);
 
 		Parse.initialize(this, "bF0ORwBlwjrv46DVMgfVswkFwMRo4KI67yfn4oWp",
 				"h7eVgwYn0ZRlIxkGAg7jwUPrDC7GMaNnMo8htmoy");
 		ParseACL defaultACL = new ParseACL();
-		
+
 		defaultACL.setPublicReadAccess(true);
 		ParseACL.setDefaultACL(defaultACL, true);
 		ParseFacebookUtils.initialize("268313903329951");
 
-
 		username = (EditText) findViewById(R.id.Username);
-		password = (EditText) findViewById(R.id.Password);		
+		password = (EditText) findViewById(R.id.Password);
 		Login = (Button) findViewById(R.id.Login);
+		final Context context = this;
 		Login.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(final View v) {
 
-				if(username.getText().length()==0) {
-					username.setError("Please enter Username");
+				if ((username.getText().length() == 0) && (password.getText().length() == 0)) {
+					AlertDialog.Builder alertBox = new AlertDialog.Builder(
+							Login.this);
+					alertBox.setTitle(" No Login Information");
+					alertBox.setNeutralButton("Ok",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int id) {
+									// exit the app and go to the HOME
+									Intent positveActivity = new Intent(getApplicationContext(),Login.class);
+								}
+							});
+					AlertDialog alert = alertBox.create();
+					alert.show();
 				}
-				if(password.getText().length()==0){
-					password.setError("Please enter Password");
+				
+				else if ((username.getText().length() == 0)){
+					AlertDialog.Builder alertBox = new AlertDialog.Builder(
+							Login.this);
+					alertBox.setTitle(" Username Required");
+					alertBox.setNeutralButton("Ok",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int id) {
+									// exit the app and go to the HOME
+									Intent positveActivity = new Intent(getApplicationContext(),Login.class);
+								}
+							});
+					AlertDialog alert = alertBox.create();
+					alert.show();
 				}
+				
+				else if ((password.getText().length() == 0)){
+					AlertDialog.Builder alertBox = new AlertDialog.Builder(
+							Login.this);
+					alertBox.setTitle(" Password Required");
+					alertBox.setNeutralButton("Ok",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int id) {
+									// exit the app and go to the HOME
+									Intent positveActivity = new Intent(getApplicationContext(),Login.class);
+								}
+							});
+					AlertDialog alert = alertBox.create();
+					alert.show();
+				}
+				
+				
 
 				ParseUser.logInInBackground(username.getText().toString(),
 						password.getText().toString(), new LogInCallback() {
 							public void done(ParseUser user, ParseException e) {
 								if (user != null) {
-									
+
 									Intent intent = new Intent(v.getContext(),
 											MainActivity.class);
 									startActivityForResult(intent, 0);
@@ -90,10 +135,7 @@ public class Login extends Activity {
 						});
 			}
 		});
-		//Session session = ParseFacebookUtils.getSession();
-		//if(session != null && session.isOpened()){
-		//	makeMeRequest();
-		//}
+
 		Register = (Button) findViewById(R.id.Register);
 		Register.setOnClickListener(new View.OnClickListener() {
 
@@ -103,7 +145,7 @@ public class Login extends Activity {
 				startActivityForResult(intent, 0);
 			}
 		});
-		
+
 		fbLogin = (Button) findViewById(R.id.fbLogin);
 		fbLogin.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -113,11 +155,11 @@ public class Login extends Activity {
 			}
 		});
 	}
-	
+
 	private void makeMeRequest() {
-		
+
 		Session session = ParseFacebookUtils.getSession();
-		
+
 		Request request = Request.newMeRequest(ParseFacebookUtils.getSession(),
 				new Request.GraphUserCallback() {
 					@Override
@@ -129,51 +171,54 @@ public class Login extends Activity {
 								// Populate the JSON object
 								userProfile.put("facebookId", user.getId());
 								userProfile.put("name", user.getName());
-							
-//
-//								if (user.getLocation().getProperty("name") != null) {
-//									userProfile.put("location", (String) user
-//											.getLocation().getProperty("name"));
-//								}
-//								if (user.getProperty("gender") != null) {
-//									userProfile.put("gender",
-//											(String) user.getProperty("gender"));
-//								}
-//								if (user.getBirthday() != null) {
-//									userProfile.put("birthday",
-//											user.getBirthday());
-//								}
-//								if (user.getProperty("relationship_status") != null) {
-//									userProfile
-//											.put("relationship_status",
-//													(String) user
-//															.getProperty("relationship_status"));
-//								}
+
+								//
+								// if (user.getLocation().getProperty("name") !=
+								// null) {
+								// userProfile.put("location", (String) user
+								// .getLocation().getProperty("name"));
+								// }
+								// if (user.getProperty("gender") != null) {
+								// userProfile.put("gender",
+								// (String) user.getProperty("gender"));
+								// }
+								// if (user.getBirthday() != null) {
+								// userProfile.put("birthday",
+								// user.getBirthday());
+								// }
+								// if (user.getProperty("relationship_status")
+								// != null) {
+								// userProfile
+								// .put("relationship_status",
+								// (String) user
+								// .getProperty("relationship_status"));
+								// }
 
 								// Save the user profile info in a user property
-								ParseUser currentUser = ParseUser.getCurrentUser();
-								currentUser.put("fullName", userProfile.get("name"));
+								ParseUser currentUser = ParseUser
+										.getCurrentUser();
+								currentUser.put("fullName",
+										userProfile.get("name"));
 								currentUser.setUsername(user.getUsername());
-								currentUser.setEmail(user.getProperty("email").toString());
+								currentUser.setEmail(user.getProperty("email")
+										.toString());
 								currentUser.saveInBackground();
 								// Show the user info
-								//updateViewsWithProfileInfo();
+								// updateViewsWithProfileInfo();
 							} catch (JSONException e) {
 								Log.d("Autrui",
 										"Error parsing returned user data.");
 							}
-							
+
 						} else if (response.getError() != null) {
 							if ((response.getError().getCategory() == FacebookRequestError.Category.AUTHENTICATION_RETRY)
 									|| (response.getError().getCategory() == FacebookRequestError.Category.AUTHENTICATION_REOPEN_SESSION)) {
 								Log.d("Autrui",
 										"The facebook session was invalidated.");
-								//onLogoutButtonClicked();
+								// onLogoutButtonClicked();
 							} else {
-								Log.d("Autrui",
-										"Some other error: "
-												+ response.getError()
-														.getErrorMessage());
+								Log.d("Autrui", "Some other error: "
+										+ response.getError().getErrorMessage());
 							}
 						}
 					}
@@ -184,7 +229,7 @@ public class Login extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-	
+
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -198,8 +243,9 @@ public class Login extends Activity {
 	private void onLoginButtonClicked() {
 		Login.this.progressDialog = ProgressDialog.show(Login.this, "",
 				"Logging in...", true);
-		List<String> permissions = Arrays.asList("basic_info","user_about_me","user_relationships",
-				"user_birthday","user_location", "email");
+		List<String> permissions = Arrays
+				.asList("basic_info", "user_about_me", "user_relationships",
+						"user_birthday", "user_location", "email");
 		ParseFacebookUtils.logIn(permissions, this, new LogInCallback() {
 			@Override
 			public void done(ParseUser user, ParseException err) {
@@ -212,7 +258,7 @@ public class Login extends Activity {
 				} else {
 					makeMeRequest();
 					System.out.println("Login Succesful");
-					
+
 					showUserDetailsActivity();
 				}
 			}
@@ -223,7 +269,7 @@ public class Login extends Activity {
 		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
 	}
-	
+
 	public void onBackPressed() {
 		return;
 	}
