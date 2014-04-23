@@ -5,11 +5,75 @@
     android:background="#FF4444">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textviewCustomDeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:gravity="left"
-        android:text="Tap on the &apos;Choose a deed&apos; button. You will be shown a list of pre-defined deeds, from which you can choose any."
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
+        android:text="How to create a Custom Deed?"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+    
+   
+    <TextView
+        android:id="@+id/textviewStepCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewCustomDeed"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="5dp"
+        android:text="Step One"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/firstpicCus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewStepCustom"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/choose_deed_step1" />
+    
+    <TextView
+        android:id="@+id/textviewStep2Cus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/firstpicCus"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="5dp"
+        android:text="Step Two"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/secondpicCus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewStep2Cus"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/choose_deed_step2" />
+    
+    <TextView
+        android:id="@+id/textviewStep3Cus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/secondpicCus"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="5dp"
+        android:text="Step Three"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/thirdpicCus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewStep3Cus"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/choose_deed_step3" />
+    
+    
 </RelativeLayout>
