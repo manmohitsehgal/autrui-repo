@@ -109,10 +109,10 @@ public class MyMovement extends Activity {
 			ParseObject newMovement = new ParseObject("Movements");
 			if((movements.size() == 0 || PayItForward == 0)) {
 				if(deeds.size() != 0) {
-					message = "You created a new Movement!";
-					push.setMessage(message);
+					//message = "You created a new Movement!";
+					//push.setMessage(message);
 					System.out.println("Sending Movement Push Notification");
-					push.sendInBackground();
+					//push.sendInBackground();
 					ParseACL acl = new ParseACL();
 					acl.setPublicReadAccess(true);
 					acl.setPublicWriteAccess(true);
