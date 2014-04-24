@@ -14,8 +14,8 @@ import com.parse.ParseUser;
 
 public class ChangePassword extends Activity {
 
-	EditText previousPass = (EditText) findViewById(R.id.etPreviousPassword);
-	EditText newPass = (EditText) findViewById(R.id.etNewPassword);
+	//EditText previousPass = (EditText) findViewById(R.id.etPreviousPassword);
+	//EditText newPass = (EditText) findViewById(R.id.etNewPassword);
 
 	
 	
