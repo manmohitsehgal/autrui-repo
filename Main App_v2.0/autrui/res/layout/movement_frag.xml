@@ -18,7 +18,7 @@
 						android:background="@drawable/mainpagebutton_shape"
                         android:layout_gravity="center"
                         android:layout_marginTop="40dp"
-                        android:text="Create a deed"
+                        android:text="Create a Deed"
                         android:textSize="70sp" 
                         android:textColor="#fff"
                         />

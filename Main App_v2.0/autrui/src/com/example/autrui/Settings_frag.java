@@ -1,6 +1,5 @@
 package com.example.autrui;
 
-
 import com.parse.ParseUser;
 
 import android.content.Intent;
@@ -19,7 +18,7 @@ import android.widget.Button;
 public class Settings_frag extends Fragment implements OnClickListener {
 
 	Intent intent = new Intent();
-		
+
 	public Settings_frag() {
 		// Required empty public constructor
 	}
@@ -28,35 +27,28 @@ public class Settings_frag extends Fragment implements OnClickListener {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.settings_frag, container,
-				false);
+		return inflater.inflate(R.layout.settings_frag, container, false);
 	}
-	
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState)
-	{
-		super.onActivityCreated(savedInstanceState);
-		
 
-		Button aboutUs = (Button) getActivity().findViewById (R.id.bAboutUs);
-		Button help = (Button) getActivity().findViewById (R.id.bHelp);
-		Button editPP = (Button) getActivity().findViewById (R.id.bEditPP);
-		Button logout = (Button) getActivity().findViewById (R.id.bLogOut);
-		Button changePass = (Button) getActivity().findViewById (R.id.bChangePass);
-		
-		
-		
-		Button fbFriends = (Button) getActivity().findViewById (R.id.bFbFriends);
-		fbFriends.setOnClickListener(this);
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+
+		Button aboutUs = (Button) getActivity().findViewById(R.id.bAboutUs);
+		Button help = (Button) getActivity().findViewById(R.id.bHelp);
+		Button editPP = (Button) getActivity().findViewById(R.id.bEditPP);
+		Button logout = (Button) getActivity().findViewById(R.id.bLogOut);
+		Button changePass = (Button) getActivity().findViewById(
+				R.id.bChangePass);
 
 		aboutUs.setOnClickListener(this);
 		help.setOnClickListener(this);
 		editPP.setOnClickListener(this);
 		logout.setOnClickListener(this);
-		changePass.setOnClickListener(this);		
-		
+		changePass.setOnClickListener(this);
+
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		int id = v.getId();
@@ -77,9 +69,6 @@ public class Settings_frag extends Fragment implements OnClickListener {
 		} else if (id == R.id.bHelp) {
 			intent = new Intent(v.getContext(), Help.class);
 			startActivityForResult(intent, 0);
-		} else if(id == R.id.bFbFriends){
-			intent = new Intent(v.getContext(), FbPassword.class);
-			startActivityForResult(intent,0);
 		}
 	}
 

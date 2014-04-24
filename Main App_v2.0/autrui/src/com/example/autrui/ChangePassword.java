@@ -14,7 +14,12 @@ import com.parse.ParseUser;
 
 public class ChangePassword extends Activity {
 
-	public void resetPassword() {
+	EditText previousPass = (EditText) findViewById(R.id.etPreviousPassword);
+	EditText newPass = (EditText) findViewById(R.id.etNewPassword);
+
+	
+	
+	/*public void resetPassword() {
 		final ParseUser currentUser = ParseUser.getCurrentUser();
 		final Button resetPassword = (Button) findViewById(R.id.bResetPassword);
 		final EditText emailBox = (EditText) findViewById(R.id.etEmailBox);
@@ -39,7 +44,7 @@ public class ChangePassword extends Activity {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-	}
+	}*/
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +52,9 @@ public class ChangePassword extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.changepassword);
-		final Button resetPassword = (Button) findViewById(R.id.bResetPassword);
+		//final Button resetPassword = (Button) findViewById(R.id.bResetPassword);
 
-		resetPassword.setOnClickListener(new View.OnClickListener() {
+		/*resetPassword.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
@@ -57,15 +62,15 @@ public class ChangePassword extends Activity {
 				resetPassword();
 			}
 
-		});
+		});*/
 
 	}
 	
-	@Override
+	/*@Override
 	public void onBackPressed() {
 		finish();
 		// Go to settings
-		/*if(MainActivity.s.isEmpty())
+		if(MainActivity.s.isEmpty())
 			return;
 		else {
 			View v = MainActivity.s.pop();
@@ -73,5 +78,5 @@ public class ChangePassword extends Activity {
 			Intent intent = new Intent(v.getContext(), c);
 			startActivityForResult(intent, 0);
 		}*/
-	}
 }
+

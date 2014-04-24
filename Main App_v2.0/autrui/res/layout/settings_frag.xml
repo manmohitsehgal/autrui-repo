@@ -12,9 +12,9 @@
         <Button
             android:id="@+id/bAboutUs"
             android:layout_width="wrap_content"
-            android:layout_height="125dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/button_settingspage_upper"
             android:ems="15"
             android:text="About Us"
@@ -24,7 +24,7 @@
         <Button
             android:id="@+id/bHelp"
             android:layout_width="wrap_content"
-            android:layout_height="125dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
             android:background="@drawable/help_button_color"
             android:ems="15"
@@ -35,7 +35,7 @@
         <Button
             android:id="@+id/bEditPP"
             android:layout_width="wrap_content"
-            android:layout_height="125dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
             android:background="@drawable/editprofile_button_color"
             android:ems="15"
@@ -43,21 +43,12 @@
             android:textColor="#FFFFFF"
             android:textSize="30sp" />
 
-        <Button
-            android:id="@+id/bFbFriends"
-            android:layout_width="wrap_content"
-            android:layout_height="125dp"
-            android:layout_gravity="center"
-            android:background="@drawable/facebookfriends_button_color"
-            android:ems="15"
-            android:text="Facebook Friends"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp" />
+    
 
         <Button
             android:id="@+id/bChangePass"
             android:layout_width="wrap_content"
-            android:layout_height="125dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
             android:background="@drawable/changepassword_button_color"
             android:ems="15"
@@ -68,7 +59,7 @@
         <Button
             android:id="@+id/bLogOut"
             android:layout_width="wrap_content"
-            android:layout_height="125dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
             android:background="@drawable/logout_button_color"
             android:ems="15"
