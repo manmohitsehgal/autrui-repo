@@ -25,81 +25,81 @@ import android.webkit.WebView;
 
 public class MyMovement extends Activity {
 
-	
-	private WebView mWebView;
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.my_movement);
-		setVisible(true);
+        
+        private WebView mWebView;
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+                // TODO Auto-generated method stub
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.my_movement);
+                setVisible(true);
 
-		Parse.initialize(this, "bF0ORwBlwjrv46DVMgfVswkFwMRo4KI67yfn4oWp",
-				"h7eVgwYn0ZRlIxkGAg7jwUPrDC7GMaNnMo8htmoy");
-		// ParseUser.enableAutomaticUser();
-		ParseACL defaultACL = new ParseACL();
+                Parse.initialize(this, "bF0ORwBlwjrv46DVMgfVswkFwMRo4KI67yfn4oWp",
+                                "h7eVgwYn0ZRlIxkGAg7jwUPrDC7GMaNnMo8htmoy");
+                // ParseUser.enableAutomaticUser();
+                ParseACL defaultACL = new ParseACL();
 
-		// If you would like all objects to be private by default, remove this
-		// line.
-		defaultACL.setPublicReadAccess(true);
+                // If you would like all objects to be private by default, remove this
+                // line.
+                defaultACL.setPublicReadAccess(true);
 
-		ParseACL.setDefaultACL(defaultACL, true);
+                ParseACL.setDefaultACL(defaultACL, true);
 
-		//setContentView(new MyView(this));
-		
-		mWebView =(WebView) findViewById(R.id.webview);
-		mWebView.getSettings().setJavaScriptEnabled(true);
-		mWebView.loadUrl("http://web.ics.purdue.edu/~mjham/example2.html");
-	}
-	@Override
-	public void onBackPressed() {
-		finish();
-	}
+                //setContentView(new MyView(this));
+                
+                mWebView =(WebView) findViewById(R.id.webview);
+                mWebView.getSettings().setJavaScriptEnabled(true);
+                mWebView.loadUrl("http://web.ics.purdue.edu/~mjham/example2.html");
+        }
+        @Override
+        public void onBackPressed() {
+                finish();
+        }
 }
 
 /*class MyView extends View {
-	public MyView(Context context) {
-		super(context);
-		// TODO Auto-generated constructor stub
-	}
+        public MyView(Context context) {
+                super(context);
+                // TODO Auto-generated constructor stub
+        }
 
-	
-	@Override
-	protected void onDraw(Canvas canvas) {
-		// TODO Auto-generated method stub
+        
+        @Override
+        protected void onDraw(Canvas canvas) {
+                // TODO Auto-generated method stub
 
-		ParseUser currentUser = ParseUser.getCurrentUser();
-		ParseQuery movementQuery = new ParseQuery("Deeds");
-		int n = 0;
-		movementQuery.whereEqualTo("userIdSrc", currentUser.getObjectId());
-		try {
-			List<ParseObject> deeds = movementQuery.find();
-			n = deeds.size();
-			for (int i = 0; i < deeds.size(); i++) {
-				System.out.println(deeds.get(i).get("deedDescription"));
-			}
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		System.out.println(n);
-		
-		super.onDraw(canvas);
-		int x = getWidth()/2;
-		int y = getHeight()/2;
-		int radius;
-		radius = 50;
-		Paint paint = new Paint();
-		
-		paint.setStyle(Paint.Style.FILL);
-		paint.setColor(Color.WHITE);
-		canvas.drawPaint(paint);
-		// Use Color.parseColor to define HTML colors
-		paint.setColor(Color.parseColor("#CD5C5C"));
-		canvas.drawCircle(x, y, radius, paint);
-		
-		int m = Math.min(x, y);
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                ParseQuery movementQuery = new ParseQuery("Deeds");
+                int n = 0;
+                movementQuery.whereEqualTo("userIdSrc", currentUser.getObjectId());
+                try {
+                        List<ParseObject> deeds = movementQuery.find();
+                        n = deeds.size();
+                        for (int i = 0; i < deeds.size(); i++) {
+                                System.out.println(deeds.get(i).get("deedDescription"));
+                        }
+                } catch (ParseException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                }
+                
+                System.out.println(n);
+                
+                super.onDraw(canvas);
+                int x = getWidth()/2;
+                int y = getHeight()/2;
+                int radius;
+                radius = 50;
+                Paint paint = new Paint();
+                
+                paint.setStyle(Paint.Style.FILL);
+                paint.setColor(Color.WHITE);
+                canvas.drawPaint(paint);
+                // Use Color.parseColor to define HTML colors
+                paint.setColor(Color.parseColor("#CD5C5C"));
+                canvas.drawCircle(x, y, radius, paint);
+                
+                int m = Math.min(x, y);
         int r = 4 * m / 5;
         int r2 = Math.abs(m - r) / 2;
         for (int i = 0; i < n; i++) {
@@ -113,7 +113,6 @@ public class MyMovement extends Activity {
             lineColor.setColor(Color.BLACK);
             canvas.drawLine(x, y, a - r2, b - r2, lineColor);
         }
-	}
+        }
 
 }*/
-

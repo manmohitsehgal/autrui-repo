@@ -171,30 +171,7 @@ public class Login extends Activity {
 								// Populate the JSON object
 								userProfile.put("facebookId", user.getId());
 								userProfile.put("name", user.getName());
-
-								//
-								// if (user.getLocation().getProperty("name") !=
-								// null) {
-								// userProfile.put("location", (String) user
-								// .getLocation().getProperty("name"));
-								// }
-								// if (user.getProperty("gender") != null) {
-								// userProfile.put("gender",
-								// (String) user.getProperty("gender"));
-								// }
-								// if (user.getBirthday() != null) {
-								// userProfile.put("birthday",
-								// user.getBirthday());
-								// }
-								// if (user.getProperty("relationship_status")
-								// != null) {
-								// userProfile
-								// .put("relationship_status",
-								// (String) user
-								// .getProperty("relationship_status"));
-								// }
-
-								// Save the user profile info in a user property
+								
 								ParseUser currentUser = ParseUser
 										.getCurrentUser();
 								currentUser.put("fullName",
@@ -275,3 +252,4 @@ public class Login extends Activity {
 	}
 
 }
+

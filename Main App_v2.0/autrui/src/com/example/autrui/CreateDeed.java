@@ -1,6 +1,7 @@
 package com.example.autrui;
 
 import java.util.List;
+
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.Parse;
@@ -40,6 +41,12 @@ public class CreateDeed extends Activity{
 		Button postDeed = (Button) findViewById(R.id.bPostDeed);
 		final EditText customdeed = (EditText) findViewById(R.id.etCustomDeed);		
 		final EditText userName = (EditText) findViewById(R.id.etUserName);
+		
+		Intent intent = getIntent();
+		if(intent.getExtras() != null)
+		{
+			customdeed.setText(intent.getExtras().getString("selectedText"));
+		}
 		
 		postDeed.setOnClickListener(new View.OnClickListener() {
 			
@@ -175,7 +182,56 @@ public class CreateDeed extends Activity{
 					addTo.get(0).saveInBackground();
 				}
 			}
+			finish();
+		}
+		catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void method() {
+		System.out.println("OnBack Successautrui");
+		ParseUser currentUser = ParseUser.getCurrentUser();
+		ParseQuery edgeQuery = new ParseQuery("Deeds");
+		ParseQuery movementQuery = new ParseQuery("Movements");
+		
+		
+		edgeQuery.whereEqualTo("MovementObj", false);
+		edgeQuery.whereEqualTo("ContainsID", false);
+		edgeQuery.whereEqualTo("userIdSrc", currentUser.getObjectId());
+		movementQuery.whereEqualTo("UserID", currentUser.getObjectId());
+		
+		int PayItForward = currentUser.getInt("PayItForward");
+		int j = 0;
+		
+		try {
 			
+			List<ParseObject> edgeCase = edgeQuery.find();
+			List<ParseObject> movements = movementQuery.find();
+			List<String> movementIds = (List<String>) currentUser.get("MovementID");
+			List<String> movRef = movementIds;
+			
+			for(int i = 0; i < edgeCase.size(); i++) {
+				System.out.println("Here in edge case loop");
+				edgeCase.get(i).put("ContainsID", true);
+				if(PayItForward == 0) {
+					edgeCase.get(i).put("MovementID", movements.get(0).getObjectId());
+					movements.get(0).add("Deeds", edgeCase.get(i));
+					movements.get(0).saveInBackground();
+				}
+				else {
+					PayItForward--;
+					String movID = movRef.get(j++);
+					if(j == movRef.size())
+						j = movRef.size() - 1;
+					System.out.println(movID);
+					edgeCase.get(i).put("MovementID", movID);
+					ParseQuery whichMovement = new ParseQuery("Movements");
+					List<ParseObject> addTo = (List<ParseObject>) whichMovement.find();
+					addTo.get(0).add("Deeds", edgeCase.get(i));
+					addTo.get(0).saveInBackground();
+				}
+			}
 		}
 		catch (ParseException e) {
 			e.printStackTrace();
@@ -183,9 +239,10 @@ public class CreateDeed extends Activity{
 	}
 
 	public void showUserDetailsActivity() {
-		onBackPressed();
+		method();
 		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
 	}
 
 }
+

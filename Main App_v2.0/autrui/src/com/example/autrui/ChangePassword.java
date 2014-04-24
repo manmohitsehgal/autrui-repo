@@ -1,6 +1,7 @@
 package com.example.autrui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -52,18 +53,24 @@ public class ChangePassword extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.changepassword);
-		//final Button resetPassword = (Button) findViewById(R.id.bResetPassword);
+		final Button resetPassword = (Button) findViewById(R.id.bResetPassword);
 
-		/*resetPassword.setOnClickListener(new View.OnClickListener() {
+		resetPassword.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				resetPassword();
+				showUserDetailsActivity();
 			}
 
-		});*/
+		});
 
+	}
+	
+
+	private void showUserDetailsActivity() {
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
 	}
 	
 	/*@Override

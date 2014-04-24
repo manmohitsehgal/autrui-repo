@@ -2,6 +2,7 @@ package com.example.autrui;
 
 import java.util.List;
 
+import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
@@ -35,6 +36,8 @@ public class MainActivity extends FragmentActivity implements TabListener
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		Parse.initialize(this, "bF0ORwBlwjrv46DVMgfVswkFwMRo4KI67yfn4oWp",
+				"h7eVgwYn0ZRlIxkGAg7jwUPrDC7GMaNnMo8htmoy");
 		ParseUser currentUser = ParseUser.getCurrentUser();
 		viewPgaer=(ViewPager) findViewById(R.id.pager);
 		viewPgaer.setAdapter(new MyAdapter(getSupportFragmentManager()));
@@ -42,6 +45,7 @@ public class MainActivity extends FragmentActivity implements TabListener
 		ParseAnalytics.trackAppOpened(getIntent());
 		ParseInstallation.getCurrentInstallation().saveInBackground();
 		PushService.subscribe(getApplicationContext(), currentUser.getObjectId(), MainActivity.class);
+		
 		/* code modified begins here */
 		ParseQuery pfQuery = new ParseQuery("Deeds");
 		
@@ -49,6 +53,7 @@ public class MainActivity extends FragmentActivity implements TabListener
 		pfQuery.whereEqualTo("InMovement", false);
 		
 		int PayItForward = currentUser.getInt("PayItForward");
+		int PF = PayItForward;
 		int i = 0;
 		try {
 			List<ParseObject> pfRem = pfQuery.find();
@@ -57,16 +62,21 @@ public class MainActivity extends FragmentActivity implements TabListener
 				if((PayItForward + (i * 2)) > 5) {
 					i--;
 					System.out.println("For loop breaking for i = " + i);
-					PayItForward += (i * 2);
+					PayItForward = 5;
 					System.out.println("PF = " + PayItForward + " and now breaking");
 					break;
 				}
+				PF += 2;
 				pfRem.get(i).put("InMovement", true);
-				System.out.println(pfRem.size() + " = size, mvtID = " + (String)pfRem.get(i).get("MovementID"));
 				currentUser.add("MovementID", (String)pfRem.get(i).get("MovementID"));
+				System.out.println(pfRem.size() + " = size, mvtID = " + (String)pfRem.get(i).get("MovementID"));
 				pfRem.get(i).saveInBackground();
-				currentUser.saveInBackground();
 			}
+			if(PayItForward == 5)
+				currentUser.put("PayItForward", PayItForward);
+			else
+				currentUser.put("PayItForward", PF);
+			currentUser.saveInBackground();
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

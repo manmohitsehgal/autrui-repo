@@ -48,9 +48,45 @@ public class Register extends Activity {
 			@Override
 			public void onClick(final View v) {
 
-				try {
-					if (password.getText().toString()
-							.equals(confirmPassword.getText().toString())) {
+				if ((fullName.getText().length() == 0)
+						|| (userName.getText().length() == 0)
+						|| (password.getText().length() == 0)
+						|| (confirmPassword.getText().length() == 0)
+						|| (email.getText().length() == 0)) {
+					AlertDialog.Builder alertBox = new AlertDialog.Builder(
+							Register.this);
+					alertBox.setTitle(" Form is incomplete");
+					alertBox.setNeutralButton("Ok",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int id) {
+									Intent positveActivity = new Intent(
+											getApplicationContext(),
+											Register.class);
+								}
+							});
+					AlertDialog alert = alertBox.create();
+					alert.show();
+				} else {
+					if (!(password.getText().toString()
+									.equals(confirmPassword.getText()
+											.toString()))) {
+						AlertDialog.Builder alertBox = new AlertDialog.Builder(
+								Register.this);
+						alertBox.setTitle("Password doesnot match");
+						alertBox.setNeutralButton("Ok",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog,
+											int id) {
+										// exit the app and go to the HOME
+										Intent positveActivity = new Intent(
+												getApplicationContext(),
+												Register.class);
+									}
+								});
+						AlertDialog alert = alertBox.create();
+						alert.show();
+					} else {
 						ParseUser user = new ParseUser();
 						user.setUsername(userName.getText().toString());
 						user.setPassword(password.getText().toString());
@@ -71,35 +107,9 @@ public class Register extends Activity {
 								}
 							}
 						});
-
 					}
-				} catch (IllegalArgumentException e) {
-					if ((fullName.getText().length() == 0)
-							|| (userName.getText().length() == 0)
-							|| (password.getText().length() == 0)
-							|| (confirmPassword.getText().length() == 0)
-							|| (email.getText().length() == 0)) {
-						AlertDialog.Builder alertBox = new AlertDialog.Builder(
-								Register.this);
-						alertBox.setTitle(" Form is incomplete");
-						alertBox.setNeutralButton("Ok",
-								new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog,
-											int id) {
-										// exit the app and go to the HOME
-										Intent positveActivity = new Intent(
-												getApplicationContext(),
-												Register.class);
-									}
-								});
-						AlertDialog alert = alertBox.create();
-						alert.show();
-					}
-
 				}
-
 			}
-
 		});
 	}
 
