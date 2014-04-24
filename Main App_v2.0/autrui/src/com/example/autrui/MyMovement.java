@@ -49,7 +49,7 @@ public class MyMovement extends Activity {
 		
 		mWebView =(WebView) findViewById(R.id.webview);
 		mWebView.getSettings().setJavaScriptEnabled(true);
-		mWebView.loadUrl("http://web.ics.purdue.edu/~mjham/example2.html");
+		mWebView.loadUrl("http://web.ics.purdue.edu/~mjham/mihird3.html");
 	}
 	@Override
 	public void onBackPressed() {
