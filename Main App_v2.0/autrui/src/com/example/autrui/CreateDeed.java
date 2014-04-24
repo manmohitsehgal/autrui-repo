@@ -111,6 +111,7 @@ public class CreateDeed extends Activity{
 								deedObject.put("MovementObj", true);
 								deedObject.put("MovementID", movRef.get(counter));
 								counter += 1;
+								System.out.println("You have added a deed to an existing movement!");
 								push.setMessage("You have added a deed to an existing movement!");
 								push.sendInBackground();
 								if(PF > 0)
