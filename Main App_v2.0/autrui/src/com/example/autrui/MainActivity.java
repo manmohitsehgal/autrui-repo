@@ -1,7 +1,12 @@
 package com.example.autrui;
 
+import java.util.List;
+
 import com.parse.ParseAnalytics;
+import com.parse.ParseException;
 import com.parse.ParseInstallation;
+import com.parse.ParseQuery;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.PushService;
 
@@ -37,6 +42,35 @@ public class MainActivity extends FragmentActivity implements TabListener
 		ParseAnalytics.trackAppOpened(getIntent());
 		ParseInstallation.getCurrentInstallation().saveInBackground();
 		PushService.subscribe(getApplicationContext(), currentUser.getObjectId(), MainActivity.class);
+		/* code modified begins here */
+		ParseQuery pfQuery = new ParseQuery("Deeds");
+		
+		pfQuery.whereEqualTo("userIdDest", currentUser.getObjectId());
+		pfQuery.whereEqualTo("InMovement", false);
+		
+		int PayItForward = currentUser.getInt("PayItForward");
+		int i = 0;
+		try {
+			List<ParseObject> pfRem = pfQuery.find();
+			for(i = 0; i < pfRem.size(); i++) {
+				System.out.println(i + " Inside for loop getting pf rem");
+				if((PayItForward + (i * 2)) > 5) {
+					i--;
+					System.out.println("For loop breaking for i = " + i);
+					PayItForward += (i * 2);
+					System.out.println("PF = " + PayItForward + " and now breaking");
+					break;
+				}
+				pfRem.get(i).put("InMovement", true);
+				System.out.println(pfRem.size() + " = size, mvtID = " + (String)pfRem.get(i).get("MovementID"));
+				currentUser.add("MovementID", (String)pfRem.get(i).get("MovementID"));
+				pfRem.get(i).saveInBackground();
+				currentUser.saveInBackground();
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
 		viewPgaer.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 			
 			@Override
