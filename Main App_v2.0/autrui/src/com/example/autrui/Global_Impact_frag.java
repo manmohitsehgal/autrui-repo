@@ -1,6 +1,7 @@
 package com.example.autrui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,7 +16,7 @@ import android.widget.Button;
  * 
  */
 
-public class Global_Impact_frag extends Fragment  {
+public class Global_Impact_frag extends Fragment implements OnClickListener  {
 
 	Intent intent = new Intent();
 	public Global_Impact_frag() {
@@ -35,26 +36,26 @@ public class Global_Impact_frag extends Fragment  {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		
 		super.onActivityCreated(savedInstanceState);
-		WebView mwebview;
+		/*WebView mwebview;
 		mwebview =(WebView) getActivity().findViewById(R.id.webviewglobal);
 		mwebview.getSettings().setJavaScriptEnabled(true);
-		mwebview.loadUrl("http://web.ics.purdue.edu/~mjham/autrui_test.html");
-	
-		
-		//Button globalImpactView = (Button) getActivity().findViewById(R.id.bglobalImpactView);
-		//globalImpactView.setOnClickListener(this);
+		mwebview.loadUrl("http://web.ics.purdue.edu/~mjham/autrui_test.html");*/
+		Button globalImpactView = (Button) getActivity().findViewById(R.id.bglobalImpactView);
+		globalImpactView.setOnClickListener(this);
 		
 	}
 	
-	/*@Override
+	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		int ides=v.getId();
 		if(ides==R.id.bglobalImpactView)
 		{
-			intent = new Intent(v.getContext(), GlobalImpactWebView.class);
-			startActivityForResult(intent, 0);
+			String url = "http://web.ics.purdue.edu/~mjham/global.html";
+			Intent i = new Intent(Intent.ACTION_VIEW);
+			i.setData(Uri.parse(url));
+			startActivity(i);
 		}
-	}*/
+	}
 
 }

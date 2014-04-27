@@ -6,6 +6,7 @@ import java.util.List;
 import com.parse.Parse;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -18,6 +19,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -47,9 +49,14 @@ public class MyMovement extends Activity {
 
 		//setContentView(new MyView(this));
 		
-		mWebView =(WebView) findViewById(R.id.webview);
+		/*mWebView =(WebView) findViewById(R.id.webview);
 		mWebView.getSettings().setJavaScriptEnabled(true);
-		mWebView.loadUrl("http://web.ics.purdue.edu/~mjham/mihird3.html");
+		mWebView.loadUrl("http://web.ics.purdue.edu/~mjham/mihird3.html");*/
+		String url = "http://web.ics.purdue.edu/~mjham/d2PdnlSLfn.html";
+		Intent i = new Intent(Intent.ACTION_VIEW);
+		i.setData(Uri.parse(url));
+		startActivity(i);
+		
 	}
 	@Override
 	public void onBackPressed() {
