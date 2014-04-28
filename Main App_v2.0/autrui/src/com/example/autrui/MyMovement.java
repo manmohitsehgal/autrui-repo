@@ -6,6 +6,7 @@ import java.util.List;
 import com.parse.Parse;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -18,6 +19,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -25,6 +27,7 @@ import android.webkit.WebView;
 
 public class MyMovement extends Activity {
 
+<<<<<<< HEAD
         
         private WebView mWebView;
         @Override
@@ -55,6 +58,43 @@ public class MyMovement extends Activity {
         public void onBackPressed() {
                 finish();
         }
+=======
+	
+	private WebView mWebView;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.my_movement);
+		setVisible(true);
+
+		Parse.initialize(this, "bF0ORwBlwjrv46DVMgfVswkFwMRo4KI67yfn4oWp",
+				"h7eVgwYn0ZRlIxkGAg7jwUPrDC7GMaNnMo8htmoy");
+		// ParseUser.enableAutomaticUser();
+		ParseACL defaultACL = new ParseACL();
+
+		// If you would like all objects to be private by default, remove this
+		// line.
+		defaultACL.setPublicReadAccess(true);
+
+		ParseACL.setDefaultACL(defaultACL, true);
+
+		//setContentView(new MyView(this));
+		
+		/*mWebView =(WebView) findViewById(R.id.webview);
+		mWebView.getSettings().setJavaScriptEnabled(true);
+		mWebView.loadUrl("http://web.ics.purdue.edu/~mjham/mihird3.html");*/
+		String url = "http://web.ics.purdue.edu/~mjham/d2PdnlSLfn.html";
+		Intent i = new Intent(Intent.ACTION_VIEW);
+		i.setData(Uri.parse(url));
+		startActivity(i);
+		
+	}
+	@Override
+	public void onBackPressed() {
+		finish();
+	}
+>>>>>>> d3b0ccdb5e50083fcf7dc95e2ea3d3291603acde
 }
 
 /*class MyView extends View {

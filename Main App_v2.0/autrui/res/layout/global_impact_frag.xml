@@ -15,7 +15,7 @@
         android:layout_width="fill_parent"
     	android:layout_height="fill_parent"
     	android:id="@+id/webviewglobal" 
-           />
+           />-->
     
 
     <LinearLayout
@@ -35,13 +35,13 @@
             android:textColor="#FFFFFF"
             android:textSize="35sp"
 	        ></Button>
-    </LinearLayout>-->
-
+    </LinearLayout>
+<!--  
 <WebView 
            
         android:layout_width="fill_parent"
     	android:layout_height="fill_parent"
     	android:id="@+id/webviewglobal" 
-           />
+           />-->
     
 </FrameLayout>
