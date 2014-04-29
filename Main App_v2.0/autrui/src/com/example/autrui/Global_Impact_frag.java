@@ -1,5 +1,6 @@
 package com.example.autrui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -27,24 +28,26 @@ public class Global_Impact_frag extends Fragment implements OnClickListener  {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.global_impact_frag,
+		return inflater.inflate(R.layout.global_impact_web_view,
 				container, false);
 	}
-	
-	
+
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
-		
+
 		super.onActivityCreated(savedInstanceState);
-		/*WebView mwebview;
-		mwebview =(WebView) getActivity().findViewById(R.id.webviewglobal);
-		mwebview.getSettings().setJavaScriptEnabled(true);
-		mwebview.loadUrl("http://web.ics.purdue.edu/~mjham/autrui_test.html");*/
-		Button globalImpactView = (Button) getActivity().findViewById(R.id.bglobalImpactView);
-		globalImpactView.setOnClickListener(this);
+		WebView mWebView;
+		mWebView = (WebView) getActivity().findViewById(R.id.webview);
+		mWebView.getSettings().setLoadWithOverviewMode(true);
+        mWebView.getSettings().setUseWideViewPort(true);
+		mWebView.getSettings().setJavaScriptEnabled(true);
+		mWebView.getSettings().setDomStorageEnabled(true);
+		mWebView.loadUrl("http://web.ics.purdue.edu/~mjham/global.html");
 		
+
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

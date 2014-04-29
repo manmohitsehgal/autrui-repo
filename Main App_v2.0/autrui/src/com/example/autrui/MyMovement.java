@@ -25,41 +25,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebView;
 
-public class MyMovement extends Activity {
-
-<<<<<<< HEAD
-        
-        private WebView mWebView;
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-                // TODO Auto-generated method stub
-                super.onCreate(savedInstanceState);
-                setContentView(R.layout.my_movement);
-                setVisible(true);
-
-                Parse.initialize(this, "bF0ORwBlwjrv46DVMgfVswkFwMRo4KI67yfn4oWp",
-                                "h7eVgwYn0ZRlIxkGAg7jwUPrDC7GMaNnMo8htmoy");
-                // ParseUser.enableAutomaticUser();
-                ParseACL defaultACL = new ParseACL();
-
-                // If you would like all objects to be private by default, remove this
-                // line.
-                defaultACL.setPublicReadAccess(true);
-
-                ParseACL.setDefaultACL(defaultACL, true);
-
-                //setContentView(new MyView(this));
-                
-                mWebView =(WebView) findViewById(R.id.webview);
-                mWebView.getSettings().setJavaScriptEnabled(true);
-                mWebView.loadUrl("http://web.ics.purdue.edu/~mjham/example2.html");
-        }
-        @Override
-        public void onBackPressed() {
-                finish();
-        }
-=======
-	
+public class MyMovement extends Activity {        
+       
 	private WebView mWebView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -81,20 +48,20 @@ public class MyMovement extends Activity {
 
 		//setContentView(new MyView(this));
 		
-		/*mWebView =(WebView) findViewById(R.id.webview);
+		mWebView =(WebView) findViewById(R.id.webview);
+		mWebView.getSettings().setLoadWithOverviewMode(true);
+        mWebView.getSettings().setUseWideViewPort(true);
 		mWebView.getSettings().setJavaScriptEnabled(true);
-		mWebView.loadUrl("http://web.ics.purdue.edu/~mjham/mihird3.html");*/
-		String url = "http://web.ics.purdue.edu/~mjham/d2PdnlSLfn.html";
-		Intent i = new Intent(Intent.ACTION_VIEW);
-		i.setData(Uri.parse(url));
-		startActivity(i);
+		mWebView.getSettings().setDomStorageEnabled(true);
+		mWebView.loadUrl("http://web.ics.purdue.edu/~mjham/d2PdnlSLfn.html");
+		//mWebView.loadUrl("http://web.ics.purdue.edu/~kapur0/graph4.html");
+		
 		
 	}
 	@Override
 	public void onBackPressed() {
 		finish();
 	}
->>>>>>> d3b0ccdb5e50083fcf7dc95e2ea3d3291603acde
 }
 
 /*class MyView extends View {
