@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type = "text/javascript" src = "http://mbostock.github.com/d3/d3.js"></script>
+		<script src = "//www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+	</head>
+
+	<body>
+		<div id="viz"></div>
+		<script type = "text/javascript">
+		
+			Parse.initialize("bF0ORwBlwjrv46DVMgfVswkFwMRo4KI67yfn4oWp", "iku92IVovylbRwXVzKyZB67s9n0AtJnPL4yGx8z6");
+			
+			var sampleSVG = d3.select("#viz")
+					.append("svg")
+					.attr("height", 1500)
+					.attr("width", 1500);
+			
+			sampleSVG.append("rect")
+				.attr("height", "100%")
+				.attr("width", "100%")
+				.attr("fill", "black");
+
+			var UserClass = Parse.Object.extend("User");
+			var query = new Parse.Query(UserClass);
+			query.find(
+				{
+					success: function(results)
+							{
+								var i = results.length;
+								var j = 0;
+								var xStart = 50;
+								var xCoordinate = xStart;
+								var yCoordinate = 250;
+
+								for(j = 0; j < i; j++)
+								{
+									//document.write(results[j].id);
+									//document.write("<br>");
+									
+									var r = 20;
+									
+
+									sampleSVG.append("circle")
+										.style("stroke", "white")
+										.style("fill", "rgba(255,0,0,0.5)")
+										.attr("r", r)
+										.attr("cx", 0)
+										.attr("cy", 500)
+										.transition()
+										.duration(2000)
+										.attr("cx", xStart)
+										.attr("cy", 500);
+									
+									var DeedsClass = Parse.Object.extend("Deeds");
+									var queryDeeds = new Parse.Query(DeedsClass);
+									queryDeeds.equalTo("userIdSrc", results[j].id);
+									queryDeeds.find(
+											{
+												success: function(deedsResults)
+															{
+																var k = deedsResults.length;
+																var u = 0;
+																
+																for(u = 0; u < k; u++)
+																{
+																	
+																	
+																	sampleSVG.append("circle")
+																		.style("stroke","gray")
+																		.style("fill", "rgba(0,255,0,1.0)")
+																		.attr("r", r)
+																		.attr("cx", 0)
+																		.attr("cy", yCoordinate)
+																		.transition()
+																		.duration(2000)
+																		.attr("cx", xCoordinate - (50*i))
+																		.attr("cy", yCoordinate);
+
+																		xCoordinate = xCoordinate + 50;
+																}
+															}
+											});
+									xStart = xStart + 50;
+									xCoordinate = xStart;
+								}
+							}
+				});
+				
+				query.find(
+						{
+							success: function(results)
+									{
+										var i = results.length;
+										var j = 0;
+										var xStart = 50;
+										var xCoordinate = xStart;
+
+										for(j = 0; j < results.length; j++)
+										{
+											var DeedsClass = Parse.Object.extend("Deeds");		
+											var deedsQuery = new Parse.Query(DeedsClass);
+											deedsQuery.equalTo("userIdSrc", results[j].id);
+											deedsQuery.find(
+														{
+															success: function(deedsResults)
+																		{
+																			var k = deedsResults.length;
+																			var u = 0;
+																			
+																			for(u = 0; u < k; u++)
+																			{
+																				var lineData = [ { "x": xStart - (50*i), "y": 500}, { "x" : xCoordinate - (50*i), "y": 250}];
+
+																				var lineFunction = d3.svg.line()
+																							.x( function(d) { return d.x; })
+																							.y( function(d) { return d.y; })
+																							.interpolate("linear");
+																				sampleSVG.append("path")
+																					.transition()
+																					.duration(4000)
+																					.attr("d", lineFunction(lineData))
+																					.attr("stroke", "blue")
+																					.attr("stroke-width", 2)
+																					.attr("fill", "none");
+																				
+																				xCoordinate = xCoordinate + 50;
+																			}
+																		}
+														});
+											xStart = xStart  + 50;
+											xCoordinate = xStart;
+										}
+									}
+						});
+		</script>
+	</body>
+</html>
