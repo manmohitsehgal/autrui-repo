@@ -20,7 +20,7 @@ The app is inspired by the Pay It Forward Movement. The idea is to respond to a 
 - [x] Iteration TWO Sprint Retrospective 
 - [x] Iteration THREE Sprint Planning Document 
 - [x] Iteration THREE Sprint Review Meeting (On Thursday, April 24th - Second Presentation) - Good Job Guys
-- [ ] Iteration THREE Sprint Retrospective (Due on Monday, May 5th)
+- [x] Iteration THREE Sprint Retrospective
 - [ ] Teaming Experience Reflection Paper Dropbox closes (On Wednesday, May 7th)
 
 
